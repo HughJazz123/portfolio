@@ -1,0 +1,208 @@
+@font-face{
+    font-family:'montserrat-bold';
+    src:url('../font/Montserrat-Bold.otf');
+}
+@font-face{
+    font-family:'montserrat';
+    src:url('../font/Montserrat-Regular.otf');
+}
+
+@font-face{
+    font-family:'lba';
+    src:url('../font/LaBelleAurore-Regular.woff2');
+}
+
+
+body{
+    background-color: #141414;
+    color: #d8d8d8;
+    margin:0;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                        supported by Chrome, Edge, Opera and Firefox */
+}
+
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration: none;}
+a:active {text-decoration: none;}
+
+.menuItems{
+    z-index: 2;
+    font-family:montserrat-bold;
+    font-size:larger;
+    width: 90%;
+    margin:0;
+    top:0;
+}
+
+nav{
+    float:right;
+}
+
+nav ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+nav a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color:#d8d8d8;
+}
+
+nav a:hover{
+    color:white;
+}
+
+nav a:not(.active)::before{
+    content:'';
+    display:block;
+    position:absolute;
+    height:5px;
+    width:0%;
+    background-color:#1cff00;
+    top:0;
+    transition:all ease-in-out 250ms;
+}
+
+nav a:not(.active):hover::before{
+    width:100%;
+}
+
+.active::before{
+    content:'';
+    display:block;
+    background-color:#1cff00;
+    height:5px;
+    width:100%;
+    top:0;
+    position:absolute;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+  /* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #4CAF50;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+  /* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+input{
+    font-family:'montserrat';
+}
+
+  /* Add a background color and some padding around the form */
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    color:black;
+    font-family:'montserrat';
+}
+
+
+.graytext{
+    font-family:'lba';
+    font-size:14pt;
+    color:#575757;
+    font-height:15px;
+}
+
+.card{
+    line-height:15px;
+    padding-left:15px;
+    width:80%;
+
+}
+
+p:not(.graytext){
+    font-family:montserrat;
+    line-height:20px;
+}
+h1, h2, h3{
+    font-family:montserrat-bold;
+}
+
+.skillList{
+    font-family:montserrat;
+    line-height:20px;
+    list-style-type:square;
+}
+.skillList > ol {
+    counter-reset: index;  
+    padding: 0;
+    max-width: 300px;
+}
+
+/* List element */
+.skillList > li {
+    counter-increment: index; 
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    box-sizing: border-box;
+}
+
+
+/* Element counter */
+.skillList > li::before {
+    content: counters(index, ".", decimal-leading-zero);
+    font-size: 1.5rem;
+    text-align: right;
+    font-weight: bold;
+    min-width: 50px;
+    padding-right: 12px;
+    font-variant-numeric: tabular-nums;
+    align-self: flex-start;
+    background-image: linear-gradient(to bottom, aquamarine, orangered);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+  /* Element separation */
+.skillList > li + li {
+border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+h2 span:not(.graytext):hover{
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    animation: bounce .3s ease infinite alternate;
+    color:aqua;
+}
