@@ -36,7 +36,7 @@ function preload() {
   gfd = loadSound("static/audio/godfuckindammit.mp3");
   motherfucker = loadSound("static/audio/motherfucker.mp3");
   rufs = loadSound("static/audio/rufs.mp3");
-  dirt = loadImage('static/dust.png')
+  dirt = loadImage('static/dust.png');
 
   sounds = [fuck1, fuck2, gfd, motherfucker, rufs];
   noLoop();
