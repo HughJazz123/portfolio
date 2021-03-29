@@ -203,7 +203,7 @@ h1, h2, h3{
 border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-h2 span:not(.graytext):hover{
+h2 span:not(.graytext):active{
     position: relative;
     top: 5px;
     display: inline-block;
