@@ -1,5 +1,5 @@
 var s;
-var scl = 40;
+var scl = 20;
 var food;
 var img;
 var mycanvas;
