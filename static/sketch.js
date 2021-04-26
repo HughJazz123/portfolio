@@ -1,9 +1,6 @@
 var s;
 var scl = 20;
 var food;
-var img;
-var mycanvas;
-var welcome_text_img;
 
 function near_round(n,scale){
     // Smaller multiple
