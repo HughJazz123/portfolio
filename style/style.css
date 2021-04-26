@@ -97,7 +97,6 @@ nav a:not(.active):hover::before{
     position:absolute;
 }
 
-/* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 
@@ -106,10 +105,11 @@ input[type=text], select, textarea {
     box-sizing: border-box; /* Make sure that padding and width stays in place */
     margin-top: 6px; /* Add a top margin */
     margin-bottom: 16px; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    background-color: #d8d8d8;
 }
 
-  /* Style the submit button with a specific background color etc */
+
 input[type=submit] {
     background-color: #4CAF50;
     color: black;
@@ -119,7 +119,6 @@ input[type=submit] {
     cursor: pointer;
 }
 
-  /* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
     background-color: #45a049;
 }
@@ -139,7 +138,7 @@ canvas{
   /* Add a background color and some padding around the form */
 .container {
     padding: 20px;
-    color:black;
+    color:#ccc;
     font-family:'montserrat';
 }
 
@@ -222,6 +221,7 @@ h2 span:not(.graytext):active{
     color:#141414;
     width: 50px;
     margin: 0 auto;
+    text-align:center;
 }
 .shop-item-image{
     width:max-content;
