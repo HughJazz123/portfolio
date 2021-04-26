@@ -15,10 +15,6 @@ function near_round(n,scale){
     return (n - a > b - n)? b : a;
 }
 
-function preload(){
-    img = loadImage("static/welcome.png");
-}
-
 function windowResized() {
     resizeCanvas(near_round(windowWidth,scl), near_round(windowHeight,scl)-scl);
     s = new Snake();
@@ -31,7 +27,6 @@ function setup(){
     s = new Snake();
     frameRate(10);
     pickLocation();
-    img.resize(width, (img.height/img.width)*(width));
 }
 
 function pickLocation(){
@@ -45,8 +40,13 @@ function pickLocation(){
 
 function draw(){
     background(25);
-    imageMode(CENTER);
-    image(img, width/2, height/2);
+    fill(250,250,250);
+    textFont('montserrat-bold');
+    textAlign(CENTER);
+    textSize(50);
+    text('Hey! I am Ryan.\nThis is my portfolio website!', width/2, height/2-50);
+    textSize(20);
+    text('Enjoy this snake game to keep yourself entertained :D', width/2, height/2+50);
     s.death();
     s.update();
     s.show();
