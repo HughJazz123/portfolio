@@ -215,14 +215,3 @@ h2 span:not(.graytext):active{
     animation: bounce .3s ease infinite alternate;
     color:aqua;
 }
-
-.shop-item{
-    background-color: white;
-    color:#141414;
-    width: 50px;
-    margin: 0 auto;
-    text-align:center;
-}
-.shop-item-image{
-    width:max-content;
-}
