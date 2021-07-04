@@ -1,6 +1,8 @@
 var s;
 var scl = 20;
 var food;
+var score = 0;
+var display_hidden_text = false;
 
 function near_round(n,scale){
     // Smaller multiple
@@ -16,6 +18,7 @@ function windowResized() {
     resizeCanvas(near_round(windowWidth,scl), near_round(windowHeight,scl)-scl);
     s = new Snake();
     pickLocation();
+    score = 0;
 }
 
 function setup(){
@@ -44,11 +47,24 @@ function draw(){
     text('Hey! I am Ryan.\nThis is my portfolio website!', width/2, height/2-50);
     textSize(20);
     text('Enjoy this snake game to keep yourself entertained :D', width/2, height/2+50);
+
+    if(display_hidden_text){
+        textSize(15);
+        text('Glad you\'re having fun with the snake game!', width/2, height/2+80);
+    }
+
+    textAlign(LEFT);
+    textSize(20);
+    text(`Score: ${score}`, 10, height-50);
     s.death();
     s.update();
     s.show();
     if (s.eat(food)){
         pickLocation();
+        score += 1000;
+        if (score == 10000){
+            display_hidden_text = true;
+        }
     }
     fill(255, 0,100);
     rect(food.x, food.y, scl, scl);

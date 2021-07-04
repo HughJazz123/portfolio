@@ -12,6 +12,9 @@
     src:url('../font/LaBelleAurore-Regular.woff2');
 }
 
+html > div[style] { /*disable pop out video*/
+    display: none !important;
+}
 
 body{
     background-color: #141414;
@@ -106,7 +109,7 @@ input[type=text], select, textarea {
     margin-top: 6px; /* Add a top margin */
     margin-bottom: 16px; /* Bottom margin */
     resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
-    background-color: #d8d8d8;
+    background-color: #f1f1f1;
 }
 
 
@@ -137,7 +140,7 @@ canvas{
 
   /* Add a background color and some padding around the form */
 .container {
-    padding: 20px;
+    padding: 10px;
     color:#ccc;
     font-family:'montserrat';
 }
@@ -145,9 +148,8 @@ canvas{
 
 .graytext{
     font-family:'lba';
-    font-size:14pt;
+    font-size:10pt;
     color:#575757;
-    font-height:15px;
 }
 
 .card{
@@ -170,43 +172,66 @@ h1, h2, h3{
     line-height:20px;
     list-style-type:square;
 }
-.skillList > ol {
-    counter-reset: index;  
-    padding: 0;
-    max-width: 300px;
-}
 
-/* List element */
 .skillList > li {
-    counter-increment: index; 
-    display: flex;
-    align-items: center;
-    padding: 12px 0;
-    box-sizing: border-box;
+    list-style-type: none;
+    margin: 10px 0 10px 0;
 }
 
-
-/* Element counter */
-.skillList > li::before {
-    content: counters(index, ".", decimal-leading-zero);
-    font-size: 1.5rem;
-    text-align: right;
-    font-weight: bold;
-    min-width: 50px;
-    padding-right: 12px;
-    font-variant-numeric: tabular-nums;
-    align-self: flex-start;
-    background-image: linear-gradient(to bottom, aquamarine, orangered);
-    background-attachment: fixed;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.strength-bar{
+    width:70%;
+    background: grey;
+    height:2px;
 }
 
-
-  /* Element separation */
-.skillList > li + li {
-border-top: 1px solid rgba(255,255,255,0.2);
+#opencv-bar{
+    width:50%;
+    height:100%;
+    background-color:#1cff00;
 }
+
+#selenium-bar{
+    width:80%;
+    height:100%;
+    background-color:#00fbff;
+}
+
+#bs4-bar{
+    width:40%;
+    height:100%;
+    background-color:#1cff00;
+}
+
+#discordpy-bar{
+    width:75%;
+    height:100%;
+    background-color:#00fbff;
+}
+
+#nodejs-bar{
+    width:90%;
+    height:100%;
+    background-color:#1cff00;
+}
+
+#p5-bar{
+    width:50%;
+    height:100%;
+    background-color:#00fbff;
+}
+
+#es6-bar{
+    width:40%;
+    height:100%;
+    background-color:#1cff00;
+}
+
+#jquery-bar{
+    width:45%;
+    height:100%;
+    background-color:#00fbff;
+}
+
 
 h2 span:not(.graytext):active{
     position: relative;
@@ -214,4 +239,26 @@ h2 span:not(.graytext):active{
     display: inline-block;
     animation: bounce .3s ease infinite alternate;
     color:aqua;
+}
+
+.project-box {
+    width:fit-content;
+    border: 5px solid #fafafa;
+    font-family:'montserrat';
+    background-color: #fafafa;
+    color:black;
+    padding-top:10px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.project-section{
+    display: grid;
+    grid-row-gap: 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.project-icon{
+    width:450px; 
+    position:relative;
 }

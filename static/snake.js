@@ -26,6 +26,7 @@ function Snake(){
             var pos = this.tail[i];
             var d = dist(this.x, this.y, pos.x, pos.y);
             if (d < 1){
+                score = 0;
                 this.x = 0;
                 this.y = near_round(height/2,scl);
                 this.xspeed = 1;
