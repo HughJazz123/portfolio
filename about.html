@@ -2,8 +2,11 @@
 <html>
     <head>
         <link rel='stylesheet' type='text/css' href='style/style.css'>
+        <link rel="shortcut icon" type="image/jpg" href="static/logo3.png"/>
         <script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
         <script src='scripts/contact.js'></script>
+        <script src="scripts/preloader.js"></script>
+        <script src="scripts/scrolling.js"></script>
         <title>About</title>
     </head>
     <body oncontextmenu="return false;">
@@ -68,5 +71,20 @@
             <p class='graytext'>&lt;/html&#62;</p>
         </div>
         <br>
+        <div class="loader-wrapper">
+            <img src='static/logo.png' class='loader-image'>
+            <span class="loader"><span class="loader-inner" id='loader'></span></span>
+        </div>
+        <script>
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+            $(window).on('load', async function(){
+                disableScroll();
+                await move('loader');
+                $(".loader-wrapper").fadeOut('slow');
+                enableScroll();
+            });
+        </script>
     </body>
 </html>

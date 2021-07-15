@@ -2,9 +2,13 @@
 <html>
     <head>
         <link rel='stylesheet' type='text/css' href='style/style.css'>
+        <link rel="shortcut icon" type="image/jpg" href="static/logo3.png"/>
         <title>Skills</title>
         <script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
         <script src='scripts/music.js'></script>
+        <script src="scripts/preloader.js"></script>
+        <script src="scripts/scrolling.js"></script>
+        <script src="scripts/animation.js"></script>
         <audio id='C' preload='auto'><source src='./static/audio/Music_Notes/C.wav'></audio>
         <audio id='G' preload='auto'><source src='./static/audio/Music_Notes/G.wav'></audio>
         <audio id='C1' preload='auto'><source src='./static/audio/Music_Notes/C1.wav'></audio>
@@ -39,7 +43,7 @@
                 <p style='padding-left:30px;font-weight:bold'>
                     I have a 3 years+ of experience in Python, and a few months of experience in Javascript and HTML/CSS.
                     I mainly use Python for automation, image processing and web scraping; use Javascript for server-side development.
-                    My favourite IDE is Visual Studio Code.
+                    I have work experience in programming a Discord bot in node.js for a client.
                 </p>
                 <p class='graytext'>&lt;/p&#62;</p>
                 <p class='graytext' >&lt;h3&#62;</p>
@@ -50,19 +54,19 @@
                 <ol class='skillList'>
                     <li>OpenCV</li>
                     <div class='strength-bar'>
-                        <div id="opencv-bar"></div>
+                        <div id="opencv-bar" class="inner-bar green-bar"></div>
                     </div>
                     <li>Selenium</li>
                     <div class='strength-bar'>
-                        <div id="selenium-bar"></div>
+                        <div id="selenium-bar" class="inner-bar cyan-bar"></div>
                     </div>
                     <li>Beautiful Soup 4</li>
                     <div class='strength-bar'>
-                        <div id="bs4-bar"></div>
+                        <div id="bs4-bar" class="inner-bar green-bar"></div>
                     </div>
                     <li>Discord.py</li>
                     <div class='strength-bar'>
-                        <div id="discordpy-bar"></div>
+                        <div id="discordpy-bar" class="inner-bar cyan-bar"></div>
                     </div>
                 </ol>
                 <p class='graytext'>&lt;/ol&#62;</p>
@@ -73,19 +77,19 @@
                 <ol class='skillList'>
                     <li>node.js</li>
                     <div class='strength-bar'>
-                        <div id="nodejs-bar"></div>
+                        <div id="nodejs-bar" class="inner-bar green-bar"></div>
                     </div>
                     <li>p5.js</li>
                     <div class='strength-bar'>
-                        <div id="p5-bar"></div>
+                        <div id="p5-bar" class="inner-bar cyan-bar"></div>
                     </div>
                     <li>ES6</li>
                     <div class='strength-bar'>
-                        <div id="es6-bar"></div>
+                        <div id="es6-bar" class="inner-bar green-bar"></div>
                     </div>
                     <li>jQuery</li>
                     <div class='strength-bar'>
-                        <div id="jquery-bar"></div>
+                        <div id="jquery-bar" class="inner-bar cyan-bar"></div>
                     </div>
                 </ol>
                 <p class='graytext'>&lt;/ol&#62;</p>
@@ -119,5 +123,32 @@
         </div>
         <p class='graytext' style='padding-left:30px;'>&lt;/body&#62;</p>
         <p class='graytext' style='padding-left:15px;'>&lt;/html&#62;</p>
+        <div class="loader-wrapper">
+            <img src='static/logo.png' class='loader-image'>
+            <span class="loader"><span class="loader-inner" id='loader'></span></span>
+        </div>
+        <script>
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+            $(window).on('load', async function(){
+                disableScroll();
+                await move('loader');
+                $(".loader-wrapper").fadeOut('slow');
+                enableScroll();
+
+                await animate_load('opencv-bar', 50);
+                await animate_load('selenium-bar', 80);
+                await animate_load('bs4-bar', 40);
+                await animate_load('discordpy-bar', 75);
+                
+                await animate_load('nodejs-bar', 90);
+                await animate_load('p5-bar', 50);
+                await animate_load('es6-bar', 40);
+                await animate_load('jquery-bar', 25);
+            });
+
+            
+        </script>
     </body>
 </html>

@@ -3,7 +3,11 @@
 <html>
     <head>
         <link rel='stylesheet' type='text/css' href='style/style.css'>
-        <title>Ryan's Portfolio</title>
+        <link rel="shortcut icon" type="image/jpg" href="static/logo3.png"/>
+        <script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
+        <script src="scripts/preloader.js"></script>
+        <script src="scripts/scrolling.js"></script>
+        <title>Projects</title>
     </head>
     <body oncontextmenu="return false;">
         <div class='menuItems'>
@@ -50,5 +54,20 @@
             </div>
             <br>
         </div>
+        <div class="loader-wrapper">
+            <img src='static/logo.png' class='loader-image'>
+            <span class="loader"><span class="loader-inner" id='loader'></span></span>
+        </div>
+        <script>
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+            $(window).on('load', async function(){
+                disableScroll();
+                await move('loader');
+                $(".loader-wrapper").fadeOut('slow');
+                enableScroll();
+            });
+        </script>
     </body>
 </html>

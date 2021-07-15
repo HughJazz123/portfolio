@@ -3,10 +3,13 @@
 <html>
     <head>
         <link rel='stylesheet' type='text/css' href='style/style.css'>
+        <link rel="shortcut icon" type="image/jpg" href="static/logo3.png"/>
         <title>Ryan's Portfolio</title>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
-        <script type="text/javascript" src="static/sketch.js"></script>
-        <script type="text/javascript" src="static/snake.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+        <script src="static/sketch.js"></script>
+        <script src="static/snake.js"></script>
+        <script src="scripts/preloader.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 
         <!-- made by www.metatags.org --> 
         <meta name="description" content= "Ryan aka liyunze portfolio; programmer, musician, mathematician and game enthusiast.  Snake game on my home page and made some human benchmark bots." />
@@ -23,7 +26,19 @@
                 </ul>
             </nav>
         </div>
-        <br>
-        <br>
+        
+        <div class="loader-wrapper">
+            <img src='static/logo.png' class='loader-image'>
+            <span class="loader"><span class="loader-inner" id='loader'></span></span>
+        </div>
+        <script>
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+            $(window).on('load', async function(){
+                await move('loader');
+                $(".loader-wrapper").fadeOut('fast');
+            });
+        </script>
     </body>
 </html>

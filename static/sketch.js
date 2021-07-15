@@ -7,15 +7,11 @@ var display_hidden_text = false;
 function near_round(n,scale){
     // Smaller multiple
     let a = parseInt(n / scale, 10) * scl;
-
-    // Larger multiple
-    let b = a + scale;
-
-    return (n - a > b - n)? b : a;
+    return a;
 }
 
 function windowResized() {
-    resizeCanvas(near_round(windowWidth,scl), near_round(windowHeight,scl)-scl);
+    resizeCanvas(near_round(windowWidth,scl), near_round(windowHeight,scl)-scl*2);
     s = new Snake();
     pickLocation();
     score = 0;
