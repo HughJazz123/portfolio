@@ -27,4 +27,4 @@
 
 ---
 
-If you want to contact me, drop a message [here]([liyunze](https://liyunze-coding.github.io/portfolio/about.html)) :)
+If you want to contact me, drop a message [here](https://liyunze-coding.github.io/portfolio/about.html) :)
