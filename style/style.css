@@ -244,22 +244,38 @@ h2 span:not(.graytext):active{
 
 .project-box {
     width:fit-content;
+    padding-top:10px;
+    margin: 0 auto;
     border: 5px solid #fafafa;
     font-family:'montserrat';
-    background-color: #fafafa;
-    color:black;
-    padding-top:10px;
+    font-size:100%;
     text-align: center;
-    margin: 0 auto;
+    color:black;
+    background-color: #fafafa;
 }
 
 .project-section{
     display: grid;
-    grid-row-gap: 50px;
+    grid-column: 2;
     grid-template-columns: 1fr 1fr 1fr;
+    align-content: center;
+    justify-content: center;
+    grid-gap: 2em;
 }
 
 .project-icon{
     width:450px; 
     position:relative;
+}
+
+@media screen and (max-width: 1600px) {
+    .project-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .project-section {
+        grid-template-columns: 1fr;
+    }
 }
