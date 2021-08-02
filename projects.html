@@ -8,6 +8,61 @@
         <script src="scripts/preloader.js"></script>
         <script src="scripts/scrolling.js"></script>
         <title>Projects</title>
+        <style>
+            .project-box {
+                width:fit-content;
+                padding-top:10px;
+                margin: 0 auto;
+                border: 5px solid #fafafa;
+                font-family:'montserrat';
+                font-size:100%;
+                text-align: center;
+                color:black;
+                background-color: #fafafa;
+            }
+
+            .project-section{
+                display: grid;
+                grid-column: 2;
+                grid-template-columns: 1fr 1fr 1fr;
+                align-content: center;
+                justify-content: center;
+                grid-gap: 2em;
+            }
+
+            .project-icon{
+                width:450px; 
+                position:relative;
+            }
+
+            @media screen and (max-width: 1400px) {
+                .project-section {
+                    grid-template-columns: 1fr 1fr;
+                    column-gap:2em;
+                }
+
+                .project-icon{
+                    width: 400px; 
+                }
+
+                .menuItems{
+                    font-size:20px;
+                }
+            }
+
+            @media screen and (max-width: 800px) {
+                .project-section {
+                    grid-template-columns: 1fr;
+                }
+                .project-icon{
+                    width:600px; 
+                }
+
+                .menuItems{
+                    font-size:30px;
+                }
+            }
+        </style>
     </head>
     <body oncontextmenu="return false;">
         <div class='menuItems'>
