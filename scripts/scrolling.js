@@ -26,6 +26,10 @@ var wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewh
 
 // call this to Disable
 function disableScroll() {
+  $('html').css({
+    'overflow': 'hidden',
+    'height': '100%'
+  })
   window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
   window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
   window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
@@ -34,6 +38,10 @@ function disableScroll() {
 
 // call this to Enable
 function enableScroll() {
+  $('html').css({
+    'overflow': 'auto',
+    'height': 'auto'
+  })
   window.removeEventListener('DOMMouseScroll', preventDefault, false);
   window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
   window.removeEventListener('touchmove', preventDefault, wheelOpt);
