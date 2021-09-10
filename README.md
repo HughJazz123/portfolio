@@ -5,7 +5,7 @@
 <!--https://n9e5v4d8.ssl.hwcdn.net/images/twitch/icon_big.png!-->
 <img align="left" alt="Twitch" height="26px" src="https://n9e5v4d8.ssl.hwcdn.net/images/twitch/icon_big.png"/>
 
-&nbsp;&nbsp;I stream on twitch [here](twitch.tv/ryanlee932)
+&nbsp;&nbsp;I stream on twitch [here](https://www.twitch.tv/ryanlee932)
 
 <img align="left" alt="HTML5" height="26px" src="https://image.flaticon.com/icons/png/512/1216/1216733.png"/>
 
