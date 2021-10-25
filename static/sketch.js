@@ -3,6 +3,7 @@ var scl = 20;
 var food;
 var score = 0;
 var display_hidden_text = false;
+var display_instructions = true;
 
 function near_round(n,scale){
     // Smaller multiple
@@ -49,9 +50,16 @@ function draw(){
         text('Glad you\'re having fun with the snake game!', width/2, height/2+80);
     }
 
+    if (display_instructions){
+        textAlign(RIGHT);
+        textSize(20);
+        text(`Use arrow keys to play!\nsorry for mobile users :(`, width-10, height-60);
+    }
+
     textAlign(LEFT);
     textSize(20);
     text(`Score: ${score}`, 10, height-50);
+
     s.death();
     s.update();
     s.show();
@@ -69,11 +77,14 @@ function draw(){
 function keyPressed(){
     if (keyCode == UP_ARROW){
         s.dir(0,-1);
+        display_instructions = false;
     } else if (keyCode == DOWN_ARROW){
         s.dir(0,1);
+        display_instructions = false;
     } else if (keyCode == RIGHT_ARROW){
         s.dir(1,0);
     } else if (keyCode == LEFT_ARROW){
         s.dir(-1,0);
+        display_instructions = false;
     }
 }
