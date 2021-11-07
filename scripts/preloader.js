@@ -17,16 +17,9 @@ function move(elem_id) {
             '10':100
         }
         function frame() {
-            if (width == progress_steps[counter.toString()]) {
-                counter++;
-            } else {
-                if (width < progress_steps[counter.toString()]){
-                    width++;
-                } else {
-                    width--;
-                }
-                elem.style.width = width + '%'; 
-            }
+            width++;
+            elem.style.width = width + '%'; 
+            
 
             if (width >= 100){
                 clearInterval(id);
