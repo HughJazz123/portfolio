@@ -49,7 +49,6 @@ function Snake(){
 
         this.x = constrain(this.x, 0, width-scl);
         this.y = constrain(this.y, 0, height-scl);
-        if (best < score) best = score;
     }
 
     this.show = function(){

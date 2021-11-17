@@ -60,6 +60,7 @@ function draw(){
 
     textAlign(LEFT);
     textSize(20);
+    if (best < score) best = score;
     text(`Score: ${score}   Best: ${best}`, 10, height-50);
 
     s.death();
