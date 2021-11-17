@@ -1,6 +1,6 @@
 function Snake(){
     this.x = 0;
-    this.y = near_round(height/2,scl);
+    this.y = near_round(height*0.7,scl);
     this.xspeed = 1;
     this.yspeed = 0;
     this.total = 1;
@@ -26,9 +26,10 @@ function Snake(){
             var pos = this.tail[i];
             var d = dist(this.x, this.y, pos.x, pos.y);
             if (d < 1){
+                current_dir = 'right';
                 score = 0;
                 this.x = 0;
-                this.y = near_round(height/2,scl);
+                this.y = near_round(height*0.7,scl);
                 this.xspeed = 1;
                 this.yspeed = 0;
                 this.total = 1;
@@ -48,6 +49,7 @@ function Snake(){
 
         this.x = constrain(this.x, 0, width-scl);
         this.y = constrain(this.y, 0, height-scl);
+        if (best < score) best = score;
     }
 
     this.show = function(){

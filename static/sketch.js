@@ -2,8 +2,10 @@ var s;
 var scl = 20;
 var food;
 var score = 0;
+var best = 0;
 var display_hidden_text = false;
 var display_instructions = true;
+var current_dir = 'right';
 
 function near_round(n,scale){
     // Smaller multiple
@@ -58,7 +60,7 @@ function draw(){
 
     textAlign(LEFT);
     textSize(20);
-    text(`Score: ${score}`, 10, height-50);
+    text(`Score: ${score}   Best: ${best}`, 10, height-50);
 
     s.death();
     s.update();
@@ -75,16 +77,20 @@ function draw(){
 }
 
 function keyPressed(){
-    if (keyCode == UP_ARROW){
+    if (keyCode == UP_ARROW && current_dir !== 'down'){
         s.dir(0,-1);
         display_instructions = false;
-    } else if (keyCode == DOWN_ARROW){
+        current_dir = 'up';
+    } else if (keyCode == DOWN_ARROW && current_dir !== 'up'){
         s.dir(0,1);
         display_instructions = false;
-    } else if (keyCode == RIGHT_ARROW){
+        current_dir = 'down';
+    } else if (keyCode == RIGHT_ARROW && current_dir !== 'left'){
         s.dir(1,0);
-    } else if (keyCode == LEFT_ARROW){
+        current_dir = 'right';
+    } else if (keyCode == LEFT_ARROW && current_dir !== 'right'){
         s.dir(-1,0);
         display_instructions = false;
+        current_dir = 'left';
     }
 }
