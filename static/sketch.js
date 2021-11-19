@@ -55,7 +55,7 @@ function draw(){
     if (display_instructions){
         textAlign(RIGHT);
         textSize(20);
-        text(`Use arrow keys to play!\nsorry for mobile users :(`, width-10, height-60);
+        text(`Use arrow keys or WASD to play!\nsorry for mobile users :(`, width-10, height-60);
     }
 
     textAlign(LEFT);
@@ -69,7 +69,7 @@ function draw(){
     if (s.eat(food)){
         pickLocation();
         score += 1000;
-        if (score == 10000){
+        if (score === 10000){
             display_hidden_text = true;
         }
     }
@@ -78,18 +78,36 @@ function draw(){
 }
 
 function keyPressed(){
-    if (keyCode == UP_ARROW && current_dir !== 'down'){
+    if (keyCode === UP_ARROW && current_dir !== 'down'){
         s.dir(0,-1);
         display_instructions = false;
         current_dir = 'up';
-    } else if (keyCode == DOWN_ARROW && current_dir !== 'up'){
+    } else if (keyCode === DOWN_ARROW && current_dir !== 'up'){
         s.dir(0,1);
         display_instructions = false;
         current_dir = 'down';
-    } else if (keyCode == RIGHT_ARROW && current_dir !== 'left'){
+    } else if (keyCode === RIGHT_ARROW && current_dir !== 'left'){
         s.dir(1,0);
         current_dir = 'right';
-    } else if (keyCode == LEFT_ARROW && current_dir !== 'right'){
+    } else if (keyCode === LEFT_ARROW && current_dir !== 'right'){
+        s.dir(-1,0);
+        display_instructions = false;
+        current_dir = 'left';
+    }
+}
+function keyTyped(){
+    if (key === 'w' && current_dir !== 'down'){
+        s.dir(0,-1);
+        display_instructions = false;
+        current_dir = 'up';
+    } else if (key === 's' && current_dir !== 'up'){
+        s.dir(0,1);
+        display_instructions = false;
+        current_dir = 'down';
+    } else if (key === 'd' && current_dir !== 'left'){
+        s.dir(1,0);
+        current_dir = 'right';
+    } else if (key === 'a' && current_dir !== 'right'){
         s.dir(-1,0);
         display_instructions = false;
         current_dir = 'left';
