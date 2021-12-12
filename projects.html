@@ -7,6 +7,17 @@
         <script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
         <script src="scripts/preloader.js"></script>
         <script src="scripts/scrolling.js"></script>
+        <script>
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+            $(window).on('load', async function(){
+                disableScroll();
+                await move('loader');
+                $(".loader-wrapper").fadeOut('slow');
+                enableScroll();
+            });
+        </script>
         <title>Projects</title>
         <style>
             .project-box {
@@ -125,7 +136,7 @@
             <div class='project-box'>
                 chess puzzle bot
                 <br><br>
-                <a href="https://github.com/liyunze-coding/chess-puzzle-bot" target='_blank'><video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'><source src='./static/videos/chess_puzzle_bot.mov'></video></a>
+                <a href="https://github.com/liyunze-coding/chess-playing-bot-v2" target='_blank'><video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'><source src='./static/videos/chess_puzzle_bot.mov'></video></a>
             </div>
             <br>
         </div>
@@ -133,16 +144,5 @@
             <img src='static/logo.jpg' class='loader-image'>
             <span class="loader"><span class="loader-inner" id='loader'></span></span>
         </div>
-        <script>
-            window.onbeforeunload = function () {
-                window.scrollTo(0, 0);
-            }
-            $(window).on('load', async function(){
-                disableScroll();
-                await move('loader');
-                $(".loader-wrapper").fadeOut('slow');
-                enableScroll();
-            });
-        </script>
     </body>
 </html>

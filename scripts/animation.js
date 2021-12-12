@@ -1,7 +1,6 @@
 function animate_load(elem_id, length) {
     return new Promise((resolve, reject)=>{
         var elem = document.getElementById(elem_id);
-        console.log(elem);
         var width = 1;
         var id = setInterval(frame, 5);
         

@@ -21,7 +21,7 @@ function windowResized() {
 }
 
 function setup(){
-    createCanvas(near_round(windowWidth,scl), near_round(windowHeight,scl)-scl);
+    createCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*3);
     document.body.style.overflow = "hidden";
     s = new Snake();
     frameRate(10);
@@ -39,7 +39,7 @@ function pickLocation(){
 
 function draw(){
     background(25);
-    fill(250,250,250);
+    fill(230,230,230);
     textFont('montserrat-bold');
     textAlign(CENTER);
     textSize(50);
@@ -55,13 +55,13 @@ function draw(){
     if (display_instructions){
         textAlign(RIGHT);
         textSize(20);
-        text(`Use arrow keys or WASD to play!\nsorry for mobile users :(`, width-10, height-60);
+        text(`Use arrow keys or WASD to play!\nsorry for mobile users :(`, width-10, height-40);
     }
 
     textAlign(LEFT);
     textSize(20);
     if (best < score) best = score;
-    text(`Score: ${score}   Best: ${best}`, 10, height-50);
+    text(`Score: ${score}   Best: ${best}`, 10, height-10);
 
     s.death();
     s.update();

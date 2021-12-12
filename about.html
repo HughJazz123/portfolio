@@ -7,8 +7,23 @@
         <script src='scripts/contact.js'></script>
         <script src="scripts/preloader.js"></script>
         <script src="scripts/scrolling.js"></script>
-        <title>About</title>
+        <script>
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+            $(window).on('load', async function(){
+                disableScroll();
+                await move('loader');
+                let date = new Date();
+                let year = date.getFullYear();
+                let age = year - 2004;
 
+                document.getElementById('age').innerText = age;
+                $(".loader-wrapper").fadeOut('slow');
+                enableScroll();
+            });
+        </script>
+        <title>About</title>
         <style>
             input[type=text], select, textarea {
                 width: 100%;
@@ -21,7 +36,6 @@
                 resize: vertical; 
                 background-color: #f1f1f1;
             }
-
 
             input[type=submit] {
                 background-color: #4CAF50;
@@ -41,7 +55,6 @@
             }
 
             .container {
-                padding: 10px;
                 color:#ccc;
                 font-family:'montserrat';
             }
@@ -64,30 +77,22 @@
             </nav>
         </div>
         <br><br>
-        <div class='card'>
-            <p class='graytext'>&lt;html&#62;</p>
-            <p class='graytext' style='padding-left:15px'>&lt;body&#62;</p>
-            <p class='graytext' style='padding-left:30px'>&lt;h1&#62;</p>
-            <h1 style='padding-left:30px'>About me</h1>
-            <p class='graytext' style='padding-left:30px'>&lt;/h1&#62;</p>
-            <p class='graytext' style='padding-left:30px'>&lt;img&#62;</p>
-            <img src='static/IMG_20210220_224031.jpg' style='width:300px;padding-left:30px;'>
+        <div class='card' style='padding-left:60px'>
+            <img src='static/IMG_20210220_224031.jpg' style='width:300px;border:3px solid #f1f1f1;'>
+            <h1>Hi I'm Ryan.</h1>
             <br>
-            <p class='graytext' style='padding-left:30px'>&lt;/img&#62;</p>
-            <p class='graytext' style='padding-left:30px'>&lt;p&#62;</p>
-            <p style='font-family:montserrat;padding-left:45px;'>
-                Hello!  My name is Ryan, I was born in 2004 and I live in Asia.  My hobbies include programming, gaming, sports and playing music.
+            <p style='font-family:montserrat;;'>
+                I am <span id='age'></span> and I live in Asia.  My hobbies include programming, gaming, sports and playing music.
                 <br><br>
-                I am proficient in Computer Science, Mathematics and Additional Mathematics; and have an interest in Philosophy and Psychology.
+                I am proficient in Computer Science, Mathematics and Additional Mathematics.
                 <br><br>
-                I play piano and guitar.  I listen to various genres of music from lofi, acoustic, J-pop to rock, metal and punk.  My favourite artists/bands include AS IT IS, Green Day, DAY6 and RADWIMPS.
+                I play piano and guitar.  I listen to various genres of music from lofi, acoustic, J-pop to rock, metal and punk.  
+                <br>My favourite bands include AS IT IS, Green Day, DAY6 and RADWIMPS.
                 <br><br>
                 In my free time, I play computer games such as Valorant, Brawlhalla and chess.
                 <br><br>
                 Contact me below!
-                <p class='graytext' style='padding-left:30px'>&lt;/p&#62;</p>
-                <p class='graytext' style='padding-left:30px'>&lt;form&#62;</p>
-                <div class="container" style='margin:0 auto; width:80%'>
+                <div class="container" style='width:80%; position:absolute;'>
                 <form action='https://formspree.io/f/xgerwrwj' method='POST'>
                 
                 <label for="name">Name<span style='color:red'>*</span></label>
@@ -99,7 +104,6 @@
                 <label for="subject">Subject</label>
                 <input type="text" name="subject" class="subject" placeholder="Subject">
                 
-                
                 <label for="Message">Message<span style='color:red'>*</span></label>
                 <textarea id="message" name='message' class='message' placeholder="Write something..." style="height:200px;font-family:montserrat"></textarea>
                 
@@ -108,26 +112,12 @@
                 <div class='status' style='color:red;font-size:smaller'></div>
                 </form>
                 </div>
-                <p class='graytext' style='padding-left:30px'>&lt;/form&#62;</p>
-                <p class='graytext' style='padding-left:15px'>&lt;/body&#62;</p>
             </p>
-            <p class='graytext'>&lt;/html&#62;</p>
         </div>
         <br>
         <div class="loader-wrapper">
             <img src='static/logo.jpg' class='loader-image'>
             <span class="loader"><span class="loader-inner" id='loader'></span></span>
         </div>
-        <script>
-            window.onbeforeunload = function () {
-                window.scrollTo(0, 0);
-            }
-            $(window).on('load', async function(){
-                disableScroll();
-                await move('loader');
-                $(".loader-wrapper").fadeOut('slow');
-                enableScroll();
-            });
-        </script>
     </body>
 </html>

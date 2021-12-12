@@ -8,7 +8,90 @@
         <script src="scripts/preloader.js"></script>
         <script src="scripts/scrolling.js"></script>
         <script src="scripts/animation.js"></script>
+        <script>
+            function consoleText(words, id, colors) {
+                var visible = true;
+                var con = document.getElementById('console');
+                var letterCount = 1;
+                var x = 1;
+                var waiting = false;
+                var target = document.getElementById(id);
+                target.setAttribute('style', 'color:' + colors[0]);
+                window.setInterval(function() {
+                    if (letterCount === 0 && waiting === false) {
+                        waiting = true;
+                        target.innerHTML = words[0].substring(0, letterCount);
+                        window.setTimeout(function() {
+                            var usedColor = colors.shift();
+                            colors.push(usedColor);
+                            var usedWord = words.shift();
+                            words.push(usedWord);
+                            x = 1;
+                            target.setAttribute('style', 'color:' + colors[0])
+                            letterCount += x;
+                            waiting = false;
+                        }, 800)
+                    } else if (letterCount === words[0].length + 1 && waiting === false) {
+                        waiting = true;
+                        window.setTimeout(function() {
+                            x = -1;
+                            letterCount += x;
+                            waiting = false;
+                        }, 3000)
+                    } else if (waiting === false) {
+                        target.innerHTML = words[0].substring(0, letterCount)
+                        letterCount += x;
+                    }
+                }, 120)
+                window.setInterval(function() {
+                    if (visible === true) {
+                    con.className = 'console-underscore hidden'
+                    visible = false;
+
+                    } else {
+                    con.className = 'console-underscore'
+
+                    visible = true;
+                    }
+                }, 400)
+            }
+
+            function typeText(text, id, interval){
+                var target = document.getElementById(id);
+                let i = 0;
+                setInterval(()=>{
+                    target.innerHTML = text.substring(0, i);
+                    i++
+                    if (i === text.length) resolve();
+                }, 10)
+            }
+
+            $(window).on('load', async function(){
+                disableScroll();
+                await move('loader');
+                $(".loader-wrapper").fadeOut('slow');
+                enableScroll();
+                consoleText(['Skills', 'Hello World.','Programming', 'Javascript', 'HTML','CSS'], 'text',['#fff','#00fbff','#1cff00', '#f0db4f','#f16529','#33a7dd']);
+                
+                let my_skills = `I have a 3 years+ of experience in Python, and a year+ of experience in Javascript and HTML/CSS.
+                    I mainly use Python for automation, image processing and web scraping; use Javascript for server-side development.
+                    I have work experience in programming a Discord bot in node.js for a client.`
+                
+                typeText(my_skills, 'description', 100)
+
+                await animate_load('opencv-bar', 50);
+                await animate_load('selenium-bar', 80);
+                await animate_load('bs4-bar', 40);
+                await animate_load('discordpy-bar', 75);
+                
+                await animate_load('nodejs-bar', 90);
+                await animate_load('p5-bar', 50);
+                await animate_load('es6-bar', 40);
+                await animate_load('jquery-bar', 25);
+            });
+        </script>
         <style>
+            @import url(https://fonts.googleapis.com/css?family=Khula:700);
             .skillList{
                 font-family:montserrat;
                 line-height:20px;
@@ -41,7 +124,24 @@
             .card{
                 line-height:15px;
                 padding-left:15px;
-                width:80%;
+                width:90%;
+                margin:0 auto;
+            }
+            .hidden {
+                opacity:0;
+            }
+            .console-container {
+                font-family:Khula;
+                font-size:50px;
+                padding-top:50px;
+                padding-bottom:30px;
+                padding-left:60px;
+            }
+            .console-underscore {
+                display:inline-block;
+                position:relative;
+                top:-0.14em;
+                left:10px;
             }
         </style>
     </head>
@@ -58,29 +158,11 @@
         </div>
         <br><br>
         <div class='card'>
-            <p class='graytext'>&lt;html&#62;</p>
-            <p class='graytext' style='padding-left:15px'>&lt;body&#62;</p>
-            <p class='graytext' style='padding-left:30px'>&lt;h1&#62;</p>
-            <h1 style='font-family:montserrat-bold;font-size:30pt;padding-left:30px;'>Skills</h1>
-            <p class='graytext' style='padding-left:30px'>&lt;/h1&#62;</p>
-
-            <p class='graytext' style='padding-left:30px'>&lt;section id='programming'&#62;</p>
+            <br>
+            <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
             <section id='programming' style='padding-left:30px;'>
-                <p class='graytext'>&lt;h2&#62;</p>
-                <h2 style='padding-left:30px'>Programming</h2>
-                <p class='graytext'>&lt;/h2&#62;</p>
-                <p class='graytext'>&lt;p&#62;</p>
-                <p style='padding-left:30px;font-weight:bold'>
-                    I have a 3 years+ of experience in Python, and a few months of experience in Javascript and HTML/CSS.
-                    I mainly use Python for automation, image processing and web scraping; use Javascript for server-side development.
-                    I have work experience in programming a Discord bot in node.js for a client.
-                </p>
-                <p class='graytext'>&lt;/p&#62;</p>
-                <p class='graytext' >&lt;h3&#62;</p>
+                <p style='padding-left:30px;width:70%' id='description'></p>
                 <h3 style='padding-left:30px'>Python</h3>
-                <p class='graytext' >&lt;/h3&#62;</p>
-                <p class='graytext' >&lt;ol&#62;</p>
-                <div class='ListStyle'></div>
                 <ol class='skillList'>
                     <li>OpenCV</li>
                     <div class='strength-bar'>
@@ -99,11 +181,8 @@
                         <div id="discordpy-bar" class="inner-bar cyan-bar"></div>
                     </div>
                 </ol>
-                <p class='graytext'>&lt;/ol&#62;</p>
-                <p class='graytext'>&lt;h3&#62;</p>
+                <br>
                 <h3 style='padding-left:30px'>Javascript</h3>
-                <p class='graytext'>&lt;/h3&#62;</p>
-                <p class='graytext' >&lt;ol&#62;</p>
                 <ol class='skillList'>
                     <li>node.js</li>
                     <div class='strength-bar'>
@@ -122,38 +201,12 @@
                         <div id="jquery-bar" class="inner-bar cyan-bar"></div>
                     </div>
                 </ol>
-                <p class='graytext'>&lt;/ol&#62;</p>
             </section>
-            <p class='graytext' style='padding-left:30px;'>&lt;/section&#62;</p>
         </div>
-        <p class='graytext' style='padding-left:30px;'>&lt;/body&#62;</p>
-        <p class='graytext' style='padding-left:15px;'>&lt;/html&#62;</p>
         <div class="loader-wrapper">
             <img src='static/logo.jpg' class='loader-image'>
             <span class="loader"><span class="loader-inner" id='loader'></span></span>
         </div>
-        <script>
-            window.onbeforeunload = function () {
-                window.scrollTo(0, 0);
-            }
-            $(window).on('load', async function(){
-                disableScroll();
-                await move('loader');
-                $(".loader-wrapper").fadeOut('slow');
-                enableScroll();
-
-                await animate_load('opencv-bar', 50);
-                await animate_load('selenium-bar', 80);
-                await animate_load('bs4-bar', 40);
-                await animate_load('discordpy-bar', 75);
-                
-                await animate_load('nodejs-bar', 90);
-                await animate_load('p5-bar', 50);
-                await animate_load('es6-bar', 40);
-                await animate_load('jquery-bar', 25);
-            });
-
-            
-        </script>
+        
     </body>
 </html>
