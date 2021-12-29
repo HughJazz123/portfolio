@@ -10,7 +10,13 @@
         <script src="static/snake.js"></script>
         <script src="scripts/preloader.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H6ST10QSZH"></script>
         <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-H6ST10QSZH');
             window.onbeforeunload = function () {
                 window.scrollTo(0, 0);
             }
@@ -20,6 +26,7 @@
             });
         </script>
         <!-- made by www.metatags.org --> 
+        <meta name='author' content="Ryan">
         <meta name="description" content= "Ryan aka liyunze portfolio; I love programming, Valorant and playing music.  I made this website from scratch with HTML and Javascript." />
         <meta name='keywords' content='Ryan Lee In Zer, portfolio, python, javascript, nodejs, node js, automation, snake, liyunze, programming'>
         <meta name="robots" content= ", follow">
