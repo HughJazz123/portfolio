@@ -25,11 +25,35 @@
                 disableScroll();
                 await move('loader');
                 $(".loader-wrapper").fadeOut('slow');
+            });
+
+            $(window).click( async function() {
                 enableScroll();
+                $('#clickToContinue').fadeOut('fast');
             });
         </script>
         <title>Projects</title>
         <style>
+            #clickToContinue{
+                display:flex;
+                position:fixed;
+                background-color:#141414;
+                color:#fafafa;
+                width:100%;
+                height:100%;
+                z-index:3;
+                opacity:0.9;
+                margin: 0 auto;
+            }
+            #click-text{
+                top:50%;
+                left:50%;
+                transform: translate(-50%, -50%);
+                font-family:'montserrat';
+                font-size:25px;
+                position:absolute;
+            }
+
             .project-box {
                 width:fit-content;
                 padding-top:10px;
@@ -86,6 +110,9 @@
         </style>
     </head>
     <body oncontextmenu="return false;">
+        <div id='clickToContinue'>
+            <div id='click-text'>Click to continue</div>
+        </div>
         <div class='menuItems'>
             <nav>
                 <ul>
