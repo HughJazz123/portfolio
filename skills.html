@@ -66,73 +66,21 @@
                 }, 400)
             }
 
-            function typeText(text, id, interval){
-                var target = document.getElementById(id);
-                let i = 0;
-                setInterval(()=>{
-                    target.innerHTML = text.substring(0, i);
-                    i++
-                    if (i === text.length) resolve();
-                }, 10)
-            }
-
             $(window).on('load', async function(){
                 disableScroll();
                 await move('loader');
                 $(".loader-wrapper").fadeOut('slow');
                 enableScroll();
-                consoleText(['Skills', 'Hello World.','Programming', 'Javascript', 'HTML','CSS'], 'text',['#fff','#00fbff','#1cff00', '#f0db4f','#f16529','#33a7dd']);
-                
-                let my_skills = `I have a 3 years+ of experience in Python, and a year+ of experience in Javascript and HTML/CSS.
-                    I mainly use Python for automation, image processing and web scraping; use Javascript for server-side development.
-                    I have work experience in programming a Discord bot in node.js for a client.`
-                
-                typeText(my_skills, 'description', 100)
-
-                await animate_load('opencv-bar', 50);
-                await animate_load('selenium-bar', 80);
-                await animate_load('bs4-bar', 40);
-                await animate_load('discordpy-bar', 75);
-                
-                await animate_load('nodejs-bar', 90);
-                await animate_load('p5-bar', 50);
-                await animate_load('es6-bar', 40);
-                await animate_load('jquery-bar', 25);
+                consoleText(['Skills', 'Hello World.','Programming', 'Content Creation', 'Javascript', 'HTML5','CSS3'], 'text',['#fff','#00fbff','#1cff00', '#00fbff', '#f0db4f','#f16529','#33a7dd']);
             });
         </script>
         <style>
             @import url(https://fonts.googleapis.com/css?family=Khula:700);
-            .skillList{
-                font-family:montserrat;
-                line-height:20px;
-                list-style-type:square;
+            p{
+                font-size:15px;
             }
-
-            .skillList > li {
-                list-style-type: none;
-                margin: 10px 0 10px 0;
-            }
-
-            .strength-bar{
-                width:70%;
-                background: grey;
-                height:2px;
-            }
-
-            .cyan-bar{
-                background-color:#00fbff;
-            }
-
-            .green-bar{
-                background-color:#1cff00;
-            }
-
-            .inner-bar{
-                height:100%;
-                width:0px;
-            }
-            .card{
-                line-height:15px;
+            .main-content{
+                line-height:1.2em;
                 padding-left:15px;
                 width:90%;
                 margin:0 auto;
@@ -153,6 +101,70 @@
                 top:-0.14em;
                 left:10px;
             }
+
+            .icons{
+                width:70%;
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                row-gap: 10px;
+            }
+
+            .item{
+                width:90px;
+                padding:10px;
+                border-radius:10px;
+            }
+
+            .lime{
+                border:solid 2px #1cff00;
+            }
+
+            .cyan{
+                border:solid 2px #00fbff;
+            }
+
+            img{
+                height:50px;
+                padding-bottom:25px;
+                left: 50%;
+                top: 50%;
+                position: relative;
+                transform: translate(-50%, -50%);
+            }
+
+            .item-name{
+                text-align:center;
+                width:100%;
+                margin:auto;
+                line-height:1.2em;
+            }
+
+            .titleChar{
+                font-size:25px;
+                position:relative;
+            }
+            .item:hover > .item-name{
+                transform: scale(1.15);
+            }
+
+            @media (hover: hover) and (pointer: fine) {
+                .titleChar:hover {
+                    position:relative;
+                    bottom: 2px;
+                    display: inline-block;
+                    font-size:25px;
+                }
+                .aquaText:hover{
+                    color:#00fbff;
+                }
+                .limeText:hover{
+                    color:#1cff00;
+                }
+            }
+
+            .underscore{
+                text-decoration: underline;
+            }
         </style>
     </head>
     <body>
@@ -167,56 +179,147 @@
             </nav>
         </div>
         <br><br>
-        <div class='card'>
+        <div class='main-content'>
             <br>
             <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
             <section id='programming' style='padding-left:30px;'>
-                <p style='padding-left:30px;width:70%' id='description'></p>
-                <h3 style='padding-left:30px'>Python</h3>
-                <ol class='skillList'>
-                    <li>OpenCV</li>
-                    <div class='strength-bar'>
-                        <div id="opencv-bar" class="inner-bar green-bar"></div>
+                <h2 style='padding-left:30px;'>
+                    <span class='titleChar limeText'>P</span
+                    ><span class='titleChar limeText'>r</span
+                    ><span class='titleChar limeText'>o</span
+                    ><span class='titleChar limeText'>g</span
+                    ><span class='titleChar limeText'>r</span
+                    ><span class='titleChar limeText'>a</span
+                    ><span class='titleChar limeText'>m</span
+                    ><span class='titleChar limeText'>m</span
+                    ><span class='titleChar limeText'>i</span
+                    ><span class='titleChar limeText'>n</span
+                    ><span class='titleChar limeText'>g</span
+                    >
+                </h2>
+                <p style='padding-left:30px;width:70%;line-height: 1.5em;'>
+                    I have more experience in Python than Javascript.
+                    I use Python for automation, image processing and web scraping and use Javascript for server-side development and web development.
+                    <br><br>
+                    I have work experience in programming a Discord bot in Node js for a client.
+                </p>
+                <h2 style='padding-left:30px;'>
+                    <span class='titleChar aquaText'>C</span
+                    ><span class='titleChar aquaText'>o</span
+                    ><span class='titleChar aquaText'>n</span
+                    ><span class='titleChar aquaText'>t</span
+                    ><span class='titleChar aquaText'>e</span
+                    ><span class='titleChar aquaText'>n</span
+                    ><span class='titleChar aquaText'>t</span
+                    ><span> </span
+                    ><span class='titleChar aquaText'>C</span
+                    ><span class='titleChar aquaText'>r</span
+                    ><span class='titleChar aquaText'>e</span
+                    ><span class='titleChar aquaText'>a</span
+                    ><span class='titleChar aquaText'>t</span
+                    ><span class='titleChar aquaText'>i</span
+                    ><span class='titleChar aquaText'>o</span
+                    ><span class='titleChar aquaText'>n</span
+                    >
+                </h2>
+                <p style='padding-left:30px;width:70%;line-height: 1.5em;'>
+                    I used to stream on Twitch, and have experience working with OBS; switching scenes, use audio filters and use various extensions to improve the viewer experience.
+                    <br><br>
+                    My streaming categories included 
+                    <span class="underscore">Genshin Impact</span>, <span class="underscore">Valorant</span> and mainly <span class="underscore">Science & Technology</span>.
+                    Now I produce some YouTube videos, showcasing the process of making a project, finishing it and demonstrating it.
+                    <br><br>
+                    I have experience in streaming a mobile game <span class="underscore">Call Of Duty: Mobile</span> to YouTube for my school's technology society, 
+                    where I streamed and commentated with a co-host for 4 hours straight.
+                </p>
+                <h2 style='padding-left:30px'>
+                    <span class='titleChar limeText'>S</span
+                    ><span class='titleChar limeText'>t</span
+                    ><span class='titleChar limeText'>u</span
+                    ><span class='titleChar limeText'>f</span
+                    ><span class='titleChar limeText'>f</span
+                    ><span> </span
+                    ><span class='titleChar limeText'>I</span
+                    ><span> </span
+                    ><span class='titleChar limeText'>k</span
+                    ><span class='titleChar limeText'>n</span
+                    ><span class='titleChar limeText'>o</span
+                    ><span class='titleChar limeText'>w</span
+                    >
+                </h2>
+                <div class="icons" style='padding-left:60px'>
+                    <div class='lime item'>
+                        <img src="./static/python.png">
+                        <div class='item-name'>Python</div>
                     </div>
-                    <li>Selenium</li>
-                    <div class='strength-bar'>
-                        <div id="selenium-bar" class="inner-bar cyan-bar"></div>
+                    <div class='cyan item'>
+                        <img src="./static/javascript.png">
+                        <div class='item-name'>Javascript</div>
                     </div>
-                    <li>Beautiful Soup 4</li>
-                    <div class='strength-bar'>
-                        <div id="bs4-bar" class="inner-bar green-bar"></div>
+                    <div class='lime item'>
+                        <img src="./static/html5.png">
+                        <div class='item-name'>HTML</div>
                     </div>
-                    <li>Discord.py</li>
-                    <div class='strength-bar'>
-                        <div id="discordpy-bar" class="inner-bar cyan-bar"></div>
+                    <div class='cyan item'>
+                        <img src="./static/css3.png">
+                        <div class='item-name'>CSS</div>
                     </div>
-                </ol>
+                    <div class='lime item'>
+                        <img src="./static/git.png">
+                        <div class='item-name'>Git</div>
+                    </div>
+                    <div class='cyan item'>
+                        <img src="./static/opencv.png">
+                        <div class='item-name'>OpenCV</div>
+                    </div>
+                    <div class='lime item'>
+                        <img src="./static/selenium.png">
+                        <div class='item-name'>Selenium</div>
+                    </div>
+                    <div class='cyan item'>
+                        <img src="./static/node-js.png">
+                        <div class='item-name'>Node js</div>
+                    </div>
+                </div>
                 <br>
-                <h3 style='padding-left:30px'>Javascript</h3>
-                <ol class='skillList'>
-                    <li>node.js</li>
-                    <div class='strength-bar'>
-                        <div id="nodejs-bar" class="inner-bar green-bar"></div>
+                <h2 style='padding-left:30px'>
+                    <span class='titleChar aquaText'>T</span
+                    ><span class='titleChar aquaText'>o</span
+                    ><span class='titleChar aquaText'>o</span
+                    ><span class='titleChar aquaText'>l</span
+                    ><span class='titleChar aquaText'>s</span
+                    ><span> </span
+                    ><span class='titleChar aquaText'>I</span
+                    ><span> </span
+                    ><span class='titleChar aquaText'>u</span
+                    ><span class='titleChar aquaText'>s</span
+                    ><span class='titleChar aquaText'>e</span
+                    >
+                </h2>
+                <div class="icons" style='padding-left:60px'>
+                    <div class='lime item'>
+                        <img src="./static/vscode.png">
+                        <div class='item-name'>VS Code</div>
                     </div>
-                    <li>p5.js</li>
-                    <div class='strength-bar'>
-                        <div id="p5-bar" class="inner-bar cyan-bar"></div>
+                    <div class='cyan item'>
+                        <img src="./static/davinci.png">
+                        <div class='item-name'>Davinci Resolve 17</div>
                     </div>
-                    <li>ES6</li>
-                    <div class='strength-bar'>
-                        <div id="es6-bar" class="inner-bar green-bar"></div>
+                    <div class='lime item'>
+                        <img src="./static/firealpaca.png">
+                        <div class='item-name'>FireAlpaca</div>
                     </div>
-                    <li>jQuery</li>
-                    <div class='strength-bar'>
-                        <div id="jquery-bar" class="inner-bar cyan-bar"></div>
+                    <div class='cyan item'>
+                        <img src="./static/obs.png">
+                        <div class='item-name'>OBS</div>
                     </div>
-                </ol>
+                </div>
             </section>
+            <br><br><br>
         </div>
         <div class="loader-wrapper">
             <img src='static/logo.jpg' class='loader-image'>
             <span class="loader"><span class="loader-inner" id='loader'></span></span>
         </div>
-        
     </body>
 </html>

@@ -42,76 +42,81 @@
                 width:100%;
                 height:100%;
                 z-index:3;
-                opacity:0.9;
+                opacity:0.95;
                 margin: 0 auto;
             }
             #click-text{
-                top:50%;
+                top:40%;
                 left:50%;
                 transform: translate(-50%, -50%);
-                font-family:'montserrat';
-                font-size:25px;
+                font-family:'montserrat-bold';
+                font-size:40px;
                 position:absolute;
             }
 
             .project-box {
-                width:fit-content;
-                padding-top:10px;
+                position:relative;
+                width:470px;
                 margin: 0 auto;
-                border: 5px solid #fafafa;
-                font-family:'montserrat';
-                font-size:100%;
-                text-align: center;
-                color:black;
-                background-color: #fafafa;
+                border: 2px solid #fafafa;
+                border-radius:5px;
+                color:#fafafa;
+                background-color: #303030;
+                padding-left:15px;
+                padding-right:15px;
             }
 
             .project-section{
                 display: grid;
                 grid-column: 2;
-                grid-template-columns: 1fr 1fr 1fr;
-                align-content: center;
-                justify-content: center;
-                grid-gap: 2em;
+                grid-template-columns: 1fr 1fr;
+                row-gap:50px;
+                margin: auto;
+                width:90%;
             }
 
             .project-icon{
                 width:450px; 
                 position:relative;
+                border-radius:10px;
+                overflow: hidden; 
+                display:block;
+                margin:auto;
+            }
+            .project-description{
+                width:100%;
+                padding-left:10px;
             }
 
-            @media screen and (max-width: 1400px) {
-                .project-section {
-                    grid-template-columns: 1fr 1fr;
-                    column-gap:2em;
-                }
+            #tags{
+                position: absolute;
+                bottom:5px;
+                height:25px;
+                padding-left:10px;
+            }
 
-                .project-icon{
-                    width: 400px; 
-                }
+            .tag{
+                font-size:12px;
+                border:solid 2px #fafafa;
+                padding:5px;
+                border-radius:10px;
+            }
 
-                .menuItems{
-                    font-size:20px;
-                }
+            .tag:hover{
+                background-color:white;
+                color:#303030;
             }
 
             @media screen and (max-width: 800px) {
                 .project-section {
                     grid-template-columns: 1fr;
                 }
-                .project-icon{
-                    width:600px; 
-                }
-
-                .menuItems{
-                    font-size:30px;
-                }
             }
         </style>
     </head>
     <body oncontextmenu="return false;">
         <div id='clickToContinue'>
-            <div id='click-text'>Click to continue</div>
+            <div id='click-text'>Click here to continue</div>
         </div>
         <div class='menuItems'>
             <nav>
@@ -126,99 +131,108 @@
         <br><br><br><br>
         <div class='project-section'>
             <div class='project-box'>
-                chimp test bot
-                <br><br>
-                <a href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/chimp_test" target='_blank'><video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'><source src='./static/videos/chimp_test.mov'></video></a>
-            </div>
-            <div class='project-box'>
-                aim trainer bot
-                <br><br>
-                <a href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/aim_trainer" target='_blank'>
+                <h4>Chimp Test bot</h4>
+                <a href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/chimp_test" target='_blank'>
                     <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/aim_trainer.mov'>
+                        <source src='./static/videos/chimp_test.mov'>
                     </video>
                 </a>
+                
+                <p class='project-description'>
+                    A bot that beats Human Benchmark's Chimp test.  Uses PIL for window capture, OpenCV for image processing, PyAutoGUI for mouse clicking.
+                </p>
+                <br><br>
+                <div id='tags'>
+                    <span class='tag'>Python</span>
+                    <span class='tag'>PIL</span>
+                    <span class='tag'>OpenCV</span>
+                    <span class='tag'>PyAutoGUI</span>
+                </div>
             </div>
             <div class='project-box'>
-                verbal memory bot
-                <br><br>
-                <a href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/verbal_memory" target='_blank'>
-                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/verbal_memory.mov'>
-                    </video>
-                </a>
-            </div>
-            <div class='project-box'>
-                visual memory bot
-                <br><br>
+                <h4>Visual Memory bot</h4>
                 <a href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/visual_memory" target='_blank'>
                     <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
                         <source src='./static/videos/visual_memory_demo.mov'>
                     </video>
                 </a>
+                
+                <p class='project-description'>
+                    A bot that beats Human Benchmark's Visual Memory test.  Uses OpenCV for image processing, PIL for window capture and PyAutoGUI for mouse clicking.
+                </p>
+                <br><br>
+                <div id='tags'>
+                    <span class='tag'>Python</span>
+                    <span class='tag'>PIL</span>
+                    <span class='tag'>OpenCV</span>
+                    <span class='tag'>PyAutoGUI</span>
+                </div>
             </div>
             <div class='project-box'>
-                reaction time bot
-                <br><br>
-                <a href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/reaction_time" target='_blank'>
-                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/reaction_time_bot.mov'>
-                    </video>
-                </a>
-            </div>
-            <div class='project-box'>
-                twitch bot
-                <br><br>
-                <a href="https://github.com/liyunze-coding/twitch-bot" target='_blank'>
-                    <img class='project-icon' src='./static/twitch.jpg'>\
-                </a>
-            </div>
-            <div class='project-box'>
-                chess bot
-                <br><br>
-                <a href="https://github.com/liyunze-coding/chess-playing-bot" target='_blank'>
+                <h4>Chess bot</h4>
+                <a href="https://github.com/liyunze-coding/chess-playing-bot-v2" target='_blank'>
                     <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
                         <source src='./static/videos/chess_bot_demo.mov'>
                     </video>
                 </a>
+                
+                <p class='project-description'>
+                    A bot that plays against opponents on lichess.  
+                    It uses OpenCV for template matching, python-chess to figure out the best move 
+                    and PyAutoGUI to play the move.
+                </p>
+                <br><br>
+                <div id='tags'>
+                    <span class='tag'>Python</span>
+                    <span class='tag'>PIL</span>
+                    <span class='tag'>OpenCV</span>
+                    <span class='tag'>PyAutoGUI</span>
+                    <span class='tag'>python-chess</span>
+                </div>
             </div>
             <div class='project-box'>
-                monkey type bot
-                <br><br>
+                <h4>Monkey Type bot</h4>
                 <a href="https://github.com/liyunze-coding/monkey-type-bot" target='_blank'>
                     <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
                         <source src='./static/videos/monkeytype.mov'>
                     </video>
                 </a>
+                
+                <p class='project-description'>
+                    A bot that types around 600-700 words per second on Monkey Type.  Does a little image processing with OpenCV, and reads text with PyTesseract.
+                    PyAutoGUI is used to type the words out.
+                </p>
+                <br><br>
+                <div id='tags'>
+                    <span class='tag'>Python</span>
+                    <span class='tag'>PIL</span>
+                    <span class='tag'>OpenCV</span>
+                    <span class='tag'>PyAutoGUI</span>
+                    <span class='tag'>PyTesseract</span>
+                </div>
             </div>
             <div class='project-box'>
-                huffman tree visualisation
-                <br><br>
-                <a href="https://github.com/liyunze-coding/huffman-tree-visualisation" target='_blank'>
-                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/huffman.mov'>
-                    </video>
-                    </a>
-            </div>
-            <div class='project-box'>
-                chess puzzle bot
-                <br><br>
-                <a href="https://github.com/liyunze-coding/chess-playing-bot-v2" target='_blank'>
-                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/chess_puzzle_bot.mov'>
-                    </video>
-                </a>
-            </div>
-            <div class='project-box'>
-                trigger me elmo
-                <br><br>
-                <a href="https://www.youtube.com/watch?v=xToLAsbLXoU" target='_blank'>
+                <h4>Trigger Me Elmo</h4>
+                <a href="https://github.com/liyunze-coding/Trigger-Me-Elmo-2" target='_blank'>
                     <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
                         <source src='./static/videos/elmo_demo.mov'>
                     </video>
                 </a>
+                
+                <p class='project-description'>
+                    A web app where Elmo sees your face, tries to guess what race you are, 
+                    then gives "compliments" based on what race it thinks you are.
+                </p>
+                <br><br>
+                <div id='tags'>
+                    <span class='tag'>Python</span>
+                    <span class='tag'>Javascript</span>
+                    <span class='tag'>PIL</span>
+                    <span class='tag'>OpenCV</span>
+                    <span class='tag'>DeepFace</span>
+                    <span class='tag'>p5.js</span>
+                </div>
             </div>
-            <br>
         </div>
         <div class="loader-wrapper">
             <img src='static/logo.jpg' class='loader-image'>

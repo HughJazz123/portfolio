@@ -8,8 +8,8 @@
 }
 
 @font-face {
-	font-family: "lba";
-	src: url("../font/LaBelleAurore-Regular.woff2");
+	font-family: "roboto-light";
+	src: url("../font/Roboto-Light.ttf");
 }
 
 html {
@@ -53,15 +53,16 @@ a:active {
 
 .menuItems {
 	z-index: 2;
-	font-family: montserrat-bold;
-	font-size: larger;
-	width: 90%;
+	font-family: "montserrat-bold";
+	font-size: 20px;
+	width: 100%;
 	margin: 0;
 	top: 0;
 }
 
 nav {
 	float: right;
+	padding-right: 50px;
 }
 
 nav ul {
@@ -155,27 +156,8 @@ nav a:not(.active):hover::before {
 	height: 100px;
 }
 
-.graytext {
-	font-family: "lba";
-	font-size: 10pt;
-	color: #575757;
-}
-
 h1,
 h2,
 h3 {
-	font-family: montserrat-bold;
-}
-
-p:not(.graytext) {
-	font-family: montserrat;
-	line-height: 20px;
-}
-
-h2 span:not(.graytext):active {
-	position: relative;
-	top: 5px;
-	display: inline-block;
-	animation: bounce 0.3s ease infinite alternate;
-	color: aqua;
+	font-family: "montserrat-bold";
 }

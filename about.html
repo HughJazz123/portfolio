@@ -73,6 +73,13 @@
                 padding-left:15px;
                 width:80%;
             }
+
+            #yt-vid{
+                color:#f1f1f1;
+            }
+            #yt-vid:hover{
+                text-decoration:underline;
+            }
         </style>
     </head>
     <body>
@@ -86,43 +93,64 @@
                 </ul>
             </nav>
         </div>
-        <br><br>
+        
         <div class='card' style='padding-left:60px'>
+            <br><br><br><br>
             <img src='static/IMG_20210220_224031.jpg' style='width:300px;border:3px solid #f1f1f1;'>
-            <h1>Hi I'm Ryan.</h1>
+            <h1>Hi I'm Ryan!</h1>
             <br>
-            <p style='font-family:montserrat;;'>
-                I am <span id='age'></span> and I live in Asia.  My hobbies include programming, gaming, sports and playing music.
+            <p style='font-family:montserrat;line-height: 1.5em;'>
+                I am <span id='age'></span> years old living in Asia.
                 <br><br>
-                I am proficient in Computer Science, Mathematics and Additional Mathematics.
+                My first experience with programming was when my parents decided to send me to a learning centre to 
+                learn Python and Maths when I was 13.
                 <br><br>
-                I play piano and guitar.  I listen to various genres of music from lofi, acoustic, J-pop to rock, metal and punk.  
-                <br>My favourite bands include AS IT IS, Green Day, DAY6 and RADWIMPS.
+                At first, I did not have an interest in the concept of programming. 
+                I was learning to draw shapes with Python's Turtle and learn basic geometry repetitively over the course of a few months.
                 <br><br>
-                In my free time, I play computer games such as Valorant, Brawlhalla and chess.
+                One day, I discovered that I was able to do programming outside the limited bubble restricted by the learning centre; 
+                I did not need to use their machines nor their websites!
                 <br><br>
-                Contact me below!
-                <div class="container" style='width:80%; position:absolute;'>
-                <form action='https://formspree.io/f/xgerwrwj' method='POST'>
-                
-                <label for="name">Name<span style='color:red'>*</span></label>
-                <input type="text" name="name" class="name" placeholder="Name">
-                
-                <label for="email">Email<span style='color:red'>*</span></label>
-                <input type="text" name="email" class="email" placeholder="Email">
-
-                <label for="subject">Subject</label>
-                <input type="text" name="subject" class="subject" placeholder="Subject">
-                
-                <label for="Message">Message<span style='color:red'>*</span></label>
-                <textarea id="message" name='message' class='message' placeholder="Write something..." style="height:200px;font-family:montserrat"></textarea>
-                
-                <input type="submit" value="Submit" class='submit' style='color:white;'>
+                So along my journey of discovering the potential of Python, I explored the world of "image processing", 
+                where I discovered how to use Pillow and OpenCV. 
+                Learning OpenCV heavily influenced my journey into programming, since many of the projects I am proud of have OpenCV as a dependency.
                 <br><br>
-                <div class='status' style='color:red;font-size:smaller'></div>
-                </form>
-                </div>
+                I learnt Javascript because a potential client wanted a Discord bot to be fully developed (and already built in Node.js), 
+                so I spent 3 weeks learning Node.js, re-applied for the job and got it.  
+                And I was inspired to pursue web development by this <a id='yt-vid' href='https://youtu.be/BZqzhmlTkAc' target='_blank'>video</a>, which led to the creation of this website!
+                <br><br>
+                I was somewhat known as an avid programmer in my high school. I was appointed to be the first president of my school technology society: Magnus.  
+                Being president of The Magnus Society has taught me a lot about the background of organising events, importance of communication with co-workers, presenting in front of a group of people etc.
+                <br><br>
+                I have also have a passion of sharing my programming knowledge to other people! I tutored some of my schoolmates in Python,
+                ranging from a private tutoring sessions to a Discord call of 50+ schoolmates watching me stream as I help them with anything they don't understand about Python.
+                <br><br>
+                I will continue honing my skills in Python and Javascript,
+                as I continue to explore the world of programming with curiosity and wonder.
             </p>
+            <br>
+            <h3>Contact me below!</h3>
+            <div class="container" style='width:80%; position:absolute;'>
+            <form action='https://formspree.io/f/xgerwrwj' method='POST'>
+            
+            <label for="name">Name<span style='color:red'>*</span></label>
+            <input type="text" name="name" class="name" placeholder="Name">
+            
+            <label for="email">Email<span style='color:red'>*</span></label>
+            <input type="text" name="email" class="email" placeholder="Email">
+
+            <label for="subject">Subject</label>
+            <input type="text" name="subject" class="subject" placeholder="Subject">
+            
+            <label for="Message">Message<span style='color:red'>*</span></label>
+            <textarea id="message" name='message' class='message' placeholder="Write something..." style="height:200px;font-family:montserrat"></textarea>
+            
+            <input type="submit" value="Submit" class='submit' style='color:white;'>
+            <br><br>
+            <div class='status' style='color:red;font-size:smaller'></div>
+            </form>
+            <br><br>
+            </div>
         </div>
         <br>
         <div class="loader-wrapper">
