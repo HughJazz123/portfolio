@@ -16,45 +16,45 @@ function near_round(n,scale){
 }
 
 function windowResized() {
-    resizeCanvas(near_round(windowWidth,scl), near_round(windowHeight,scl)-scl*2);
+    resizeCanvas(near_round(windowWidth,scl), near_round(windowHeight,scl)-scl*5);
     s = new Snake();
     pickLocation();
     score = 0;
-    up_button.size(40,40);
-    up_button.position(width-70, height-55);
+    up_button.size(60,60);
+    up_button.position(width-120, height-85);
 
-    left_button.size(40,40);
-    left_button.position(width-110, height-25);
+    left_button.size(60,60);
+    left_button.position(width-190, height-45);
 
-    right_button.size(40,40);
-    right_button.position(width-30, height-25);
+    right_button.size(60,60);
+    right_button.position(width-50, height-45);
 
-    down_button.size(40,40);
-    down_button.position(width-70, height);
+    down_button.size(60,60);
+    down_button.position(width-120, height-10);
 }
 
 function setup(){
-    createCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*3);
+    createCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
     document.body.style.overflow = "hidden";
     s = new Snake();
     frameRate(10);
     pickLocation();
 
     up_button = createButton(`↑`);
-    up_button.size(40,40);
-    up_button.position(width-70, height-55);
+    up_button.size(60,60);
+    up_button.position(width-120, height-85);
 
     left_button = createButton(`←`);
-    left_button.size(40,40);
-    left_button.position(width-110, height-25);
+    left_button.size(60,60);
+    left_button.position(width-190, height-45);
 
     right_button = createButton(`→`);
-    right_button.size(40,40);
-    right_button.position(width-30, height-25);
+    right_button.size(60,60);
+    right_button.position(width-50, height-45);
 
     down_button = createButton(`↓`);
-    down_button.size(40,40);
-    down_button.position(width-70, height);
+    down_button.size(60,60);
+    down_button.position(width-120, height-10);
 }
 
 function pickLocation(){

@@ -29,7 +29,7 @@ html > div[style] {
 body {
 	background-color: #141414;
 	color: #d8d8d8;
-	font-family: montserrat;
+	font-family: "montserrat";
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -51,18 +51,14 @@ a:active {
 	text-decoration: none;
 }
 
-.menuItems {
+nav {
 	z-index: 2;
+	display: flex;
 	font-family: "montserrat-bold";
 	font-size: 20px;
-	width: 100%;
-	margin: 0;
-	top: 0;
-}
-
-nav {
-	float: right;
-	padding-right: 50px;
+	width: 95%;
+	justify-content: right;
+	padding-bottom: 20px;
 }
 
 nav ul {
@@ -131,9 +127,10 @@ nav a:not(.active):hover::before {
 	align-items: center;
 }
 .loader {
-	display: inline-block;
+	z-index: 101;
+	position: absolute;
 	border: 1px solid #1cff00;
-	position: relative;
+	top: 400px;
 	border-radius: 50px;
 	width: 500px;
 	height: 5px;
@@ -148,9 +145,7 @@ nav a:not(.active):hover::before {
 	animation: loader-inner 5s infinite ease-in;
 }
 .loader-image {
-	margin: 0 auto;
-	top: 33%;
-	justify-content: center;
+	top: 250px;
 	position: absolute;
 	width: 100px;
 	height: 100px;
