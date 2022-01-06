@@ -20,6 +20,17 @@ function windowResized() {
     s = new Snake();
     pickLocation();
     score = 0;
+    up_button.size(40,40);
+    up_button.position(width-70, height-55);
+
+    left_button.size(40,40);
+    left_button.position(width-110, height-25);
+
+    right_button.size(40,40);
+    right_button.position(width-30, height-25);
+
+    down_button.size(40,40);
+    down_button.position(width-70, height);
 }
 
 function setup(){
@@ -30,20 +41,20 @@ function setup(){
     pickLocation();
 
     up_button = createButton(`↑`);
-    up_button.size(25,25);
-    up_button.position(width-50, height-55);
+    up_button.size(40,40);
+    up_button.position(width-70, height-55);
 
     left_button = createButton(`←`);
-    left_button.size(25,25);
-    left_button.position(width-80, height-25);
+    left_button.size(40,40);
+    left_button.position(width-110, height-25);
 
     right_button = createButton(`→`);
-    right_button.size(25,25);
-    right_button.position(width-20, height-25);
+    right_button.size(40,40);
+    right_button.position(width-30, height-25);
 
     down_button = createButton(`↓`);
-    down_button.size(25,25);
-    down_button.position(width-50, height);
+    down_button.size(40,40);
+    down_button.position(width-70, height);
 }
 
 function pickLocation(){
