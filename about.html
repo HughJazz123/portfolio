@@ -21,6 +21,9 @@
             window.onbeforeunload = function () {
                 window.scrollTo(0, 0);
             }
+
+            console.log('Imagine how narcissistic you have to be, writing so many paragraphs about yourself ugh')
+
             $(window).on('load', async function(){
                 disableScroll();
                 await move('loader');

@@ -7,6 +7,8 @@ var display_hidden_text = false;
 var display_instructions = true;
 var current_dir = 'right';
 
+console.log("Hi! If you want to see the source code, it's on my github here: https://github.com/liyunze-coding/portfolio")
+
 function near_round(n,scale){
     // Smaller multiple
     let a = parseInt(n / scale, 10) * scl;
