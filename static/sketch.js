@@ -28,6 +28,22 @@ function setup(){
     s = new Snake();
     frameRate(10);
     pickLocation();
+
+    up_button = createButton(`↑`);
+    up_button.size(25,25);
+    up_button.position(width-50, height-55);
+
+    left_button = createButton(`←`);
+    left_button.size(25,25);
+    left_button.position(width-80, height-25);
+
+    right_button = createButton(`→`);
+    right_button.size(25,25);
+    right_button.position(width-20, height-25);
+
+    down_button = createButton(`↓`);
+    down_button.size(25,25);
+    down_button.position(width-50, height);
 }
 
 function pickLocation(){
@@ -54,12 +70,6 @@ function draw(){
         text('Glad you\'re having fun with the snake game!', width/2, height/2+80);
     }
 
-    if (display_instructions){
-        textAlign(RIGHT);
-        textSize(20);
-        text(`Use arrow keys or WASD to play!\nsorry for mobile users :(`, width-10, height-40);
-    }
-
     textAlign(LEFT);
     textSize(20);
     if (best < score) best = score;
@@ -68,6 +78,28 @@ function draw(){
     s.death();
     s.update();
     s.show();
+
+    up_button.mousePressed(()=>{
+        if (current_dir !== 'down'){
+            moveUp()
+        }
+    });
+    left_button.mousePressed(()=>{
+        if (current_dir !== 'right'){
+            moveLeft()
+        }
+    });
+    right_button.mousePressed(()=>{
+        if (current_dir !== 'left'){
+            moveRight()
+        }
+    });
+    down_button.mousePressed(()=>{
+        if (current_dir !== 'up'){
+            moveDown()
+        }
+    });
+
     if (s.eat(food)){
         pickLocation();
         score += 1000;
@@ -79,39 +111,46 @@ function draw(){
     rect(food.x, food.y, scl, scl);
 }
 
+function moveUp(){
+    s.dir(0,-1);
+    current_dir = 'up';
+    return false;
+}
+
+function moveDown(){
+    s.dir(0,1);
+    current_dir = 'down';
+}
+
+function moveRight(){
+    s.dir(1,0);
+    current_dir = 'right';
+}
+
+function moveLeft(){
+    s.dir(-1,0);
+    current_dir = 'left';
+}
+
 function keyPressed(){
     if (keyCode === UP_ARROW && current_dir !== 'down'){
-        s.dir(0,-1);
-        display_instructions = false;
-        current_dir = 'up';
+        moveUp();
     } else if (keyCode === DOWN_ARROW && current_dir !== 'up'){
-        s.dir(0,1);
-        display_instructions = false;
-        current_dir = 'down';
+        moveDown();
     } else if (keyCode === RIGHT_ARROW && current_dir !== 'left'){
-        s.dir(1,0);
-        current_dir = 'right';
+        moveRight();
     } else if (keyCode === LEFT_ARROW && current_dir !== 'right'){
-        s.dir(-1,0);
-        display_instructions = false;
-        current_dir = 'left';
+        moveLeft();
     }
 }
 function keyTyped(){
     if (key === 'w' && current_dir !== 'down'){
-        s.dir(0,-1);
-        display_instructions = false;
-        current_dir = 'up';
+        moveUp()
     } else if (key === 's' && current_dir !== 'up'){
-        s.dir(0,1);
-        display_instructions = false;
-        current_dir = 'down';
+        moveDown();
     } else if (key === 'd' && current_dir !== 'left'){
-        s.dir(1,0);
-        current_dir = 'right';
+        moveRight();
     } else if (key === 'a' && current_dir !== 'right'){
-        s.dir(-1,0);
-        display_instructions = false;
-        current_dir = 'left';
+        moveLeft();
     }
 }
