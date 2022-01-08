@@ -3,7 +3,7 @@
 <html>
     <head>
         <link rel='stylesheet' type='text/css' href='style/style.css'>
-        <link rel="shortcut icon" type="image/jpg" href="static/logo.jpg"/>
+        <link rel="shortcut icon" type="image/jpg" href="static/images/logo.jpg"/>
         <meta name='author' content="Ryan">
         <meta name="description" content= "Some of the projects I've made in the past, all available on github" />
         <meta name='keywords' content='Ryan Lee In Zer, portfolio, python, javascript, nodejs, node js, automation, snake, liyunze, programming, projects'>
@@ -87,7 +87,7 @@
                 margin:auto;
             }
             .project-description{
-                width:100%;
+                width:95%;
                 padding-left:10px;
             }
 
@@ -158,7 +158,7 @@
                 </a>
                 
                 <p class='project-description'>
-                    A bot that beats Human Benchmark's Visual Memory test.  Uses OpenCV for image processing, PIL for window capture and PyAutoGUI for mouse clicking.
+                    A bot that beats Human Benchmark's Visual Memory test.  Uses PIL for window capture, OpenCV for image processing and PyAutoGUI for mouse clicking.
                 </p>
                 <br><br>
                 <div id='tags'>
@@ -166,6 +166,22 @@
                     <span class='tag'>PIL</span>
                     <span class='tag'>OpenCV</span>
                     <span class='tag'>PyAutoGUI</span>
+                </div>
+            </div>
+            <div class='project-box'>
+                <h4>Verbal Memory bot</h4>
+                <a href="https://github.com/liyunze-coding/Trigger-Me-Elmo-2" target='_blank'>
+                    <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
+                        <source src='./static/videos/verbal_memory.mov'>
+                    </video>
+                </a>
+                <p class='project-description'>
+                    A bot that beats Human Benchmark's Verbal Memory test. Uses web scraping library Selenium to get words and send button click input.
+                </p>
+                <br><br>
+                <div id='tags'>
+                    <span class='tag'>Python</span>
+                    <span class='tag'>Selenium</span>
                 </div>
             </div>
             <div class='project-box'>
@@ -177,8 +193,8 @@
                 </a>
                 
                 <p class='project-description'>
-                    A bot that plays against opponents on lichess.  
-                    It uses OpenCV for template matching, python-chess to figure out the best move 
+                    A bot that plays against opponents on lichess. 
+                    It uses OpenCV for template matching, a chess library to figure out the best move 
                     and PyAutoGUI to play the move.
                 </p>
                 <br><br>
@@ -187,7 +203,7 @@
                     <span class='tag'>PIL</span>
                     <span class='tag'>OpenCV</span>
                     <span class='tag'>PyAutoGUI</span>
-                    <span class='tag'>python-chess</span>
+                    <span class='tag'>chess</span>
                 </div>
             </div>
             <div class='project-box'>
@@ -199,7 +215,7 @@
                 </a>
                 
                 <p class='project-description'>
-                    A bot that types around 600-700 words per second on Monkey Type.  Does a little image processing with OpenCV, and reads text with PyTesseract.
+                    A bot that types around 600-700 words per second on Monkey Type. Does a little image processing with OpenCV, and reads text with PyTesseract.
                     PyAutoGUI is used to type the words out.
                 </p>
                 <br><br>
@@ -220,8 +236,7 @@
                 </a>
                 
                 <p class='project-description'>
-                    A web app where Elmo sees your face, tries to guess what race you are, 
-                    then gives "compliments" based on what race it thinks you are.
+                    A web app where Elmo sees your face, then gives "compliments" based on the race it thinks you are. DeepFace is used for the racial detection.
                 </p>
                 <br><br>
                 <div id='tags'>
@@ -235,7 +250,7 @@
             </div>
         </div>
         <div class="loader-wrapper">
-            <img src='static/logo.jpg' class='loader-image'>
+            <img src='static/images/logo.jpg' class='loader-image'>
             <span class="loader"><span class="loader-inner" id='loader'></span></span>
         </div>
     </body>
