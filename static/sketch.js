@@ -8,7 +8,7 @@ var display_instructions = true;
 var current_dir = 'right';
 
 console.log("Hi! If you want to see the source code, it's on my github here: https://github.com/liyunze-coding/portfolio")
-
+console.log("There's definitely nothing special when you hit 10k score...")
 function near_round(n,scale){
     // Smaller multiple
     let a = parseInt(n / scale, 10) * scl;
@@ -55,6 +55,27 @@ function setup(){
     down_button = createButton(`↓`);
     down_button.size(60,60);
     down_button.position(width-120, height-10);
+
+    up_button.mousePressed(()=>{
+        if (current_dir !== 'down'){
+            moveUp()
+        }
+    });
+    left_button.mousePressed(()=>{
+        if (current_dir !== 'right'){
+            moveLeft()
+        }
+    });
+    right_button.mousePressed(()=>{
+        if (current_dir !== 'left'){
+            moveRight()
+        }
+    });
+    down_button.mousePressed(()=>{
+        if (current_dir !== 'up'){
+            moveDown()
+        }
+    });
 }
 
 function pickLocation(){
@@ -89,27 +110,6 @@ function draw(){
     s.death();
     s.update();
     s.show();
-
-    up_button.mousePressed(()=>{
-        if (current_dir !== 'down'){
-            moveUp()
-        }
-    });
-    left_button.mousePressed(()=>{
-        if (current_dir !== 'right'){
-            moveLeft()
-        }
-    });
-    right_button.mousePressed(()=>{
-        if (current_dir !== 'left'){
-            moveRight()
-        }
-    });
-    down_button.mousePressed(()=>{
-        if (current_dir !== 'up'){
-            moveDown()
-        }
-    });
 
     if (s.eat(food)){
         pickLocation();

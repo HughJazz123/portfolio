@@ -8,6 +8,7 @@
         <meta name="description" content= "Some of the projects I've made in the past, all available on github" />
         <meta name='keywords' content='Ryan Lee In Zer, portfolio, python, javascript, nodejs, node js, automation, snake, liyunze, programming, projects'>
         <meta name="robots" content= ", follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
         <script src="scripts/preloader.js"></script>
         <script src="scripts/scrolling.js"></script>
@@ -23,7 +24,7 @@
             }
 
             console.log(`I hope the Trigger Me Elmo isn't too edgy.  If it is... sorry.`);
-            console.log(`Literally all the projects have PIL and OpenCV...`);
+            console.log(`Literally 5/6 of the projects have PIL and OpenCV...`);
             $(window).on('load', async function(){
                 disableScroll();
                 await move('loader');
@@ -59,7 +60,6 @@
 
             .project-box {
                 position:relative;
-                width:470px;
                 margin: 0 auto;
                 border: 2px solid #fafafa;
                 border-radius:5px;
@@ -74,28 +74,32 @@
                 grid-column: 2;
                 grid-template-columns: 1fr 1fr;
                 row-gap:50px;
+                column-gap:20px;
                 margin: auto;
-                width:90%;
+                width: 90%;
             }
 
             .project-icon{
-                width:450px; 
+                width:90%; 
                 position:relative;
                 border-radius:10px;
                 overflow: hidden; 
                 display:block;
-                margin:auto;
+                margin:0 auto;
             }
             .project-description{
                 width:95%;
                 padding-left:10px;
+                font-size:15px;
             }
 
-            #tags{
+            .tags{
                 position: absolute;
-                bottom:5px;
+                bottom:10px;
                 height:25px;
                 padding-left:10px;
+                line-height:2em;
+                margin-bottom:10px;
             }
 
             .tag{
@@ -110,9 +114,26 @@
                 color:#303030;
             }
 
-            @media screen and (max-width: 800px) {
+            h4{
+                font-size:20px;
+                font-family:'montserrat-bold';
+                padding-left:10px;
+            }
+
+            @media screen and (max-width: 900px){
                 .project-section {
                     grid-template-columns: 1fr;
+                }
+                #click-text{
+                    font-size:25px;
+                    white-space: nowrap;
+                }
+                .project-box{
+                    height:fit-content;
+                }
+                .tags{
+                    position:relative;
+                    height:fit-content;
                 }
             }
         </style>
@@ -142,7 +163,7 @@
                     A bot that beats Human Benchmark's Chimp test.  Uses PIL for window capture, OpenCV for image processing, PyAutoGUI for mouse clicking.
                 </p>
                 <br><br>
-                <div id='tags'>
+                <div class='tags'>
                     <span class='tag'>Python</span>
                     <span class='tag'>PIL</span>
                     <span class='tag'>OpenCV</span>
@@ -161,7 +182,7 @@
                     A bot that beats Human Benchmark's Visual Memory test.  Uses PIL for window capture, OpenCV for image processing and PyAutoGUI for mouse clicking.
                 </p>
                 <br><br>
-                <div id='tags'>
+                <div class='tags'>
                     <span class='tag'>Python</span>
                     <span class='tag'>PIL</span>
                     <span class='tag'>OpenCV</span>
@@ -179,7 +200,7 @@
                     A bot that beats Human Benchmark's Verbal Memory test. Uses web scraping library Selenium to get words and send button click input.
                 </p>
                 <br><br>
-                <div id='tags'>
+                <div class='tags'>
                     <span class='tag'>Python</span>
                     <span class='tag'>Selenium</span>
                 </div>
@@ -198,7 +219,7 @@
                     and PyAutoGUI to play the move.
                 </p>
                 <br><br>
-                <div id='tags'>
+                <div class='tags'>
                     <span class='tag'>Python</span>
                     <span class='tag'>PIL</span>
                     <span class='tag'>OpenCV</span>
@@ -219,7 +240,7 @@
                     PyAutoGUI is used to type the words out.
                 </p>
                 <br><br>
-                <div id='tags'>
+                <div class='tags'>
                     <span class='tag'>Python</span>
                     <span class='tag'>PIL</span>
                     <span class='tag'>OpenCV</span>
@@ -239,7 +260,7 @@
                     A web app where Elmo sees your face, then gives "compliments" based on the race it thinks you are. DeepFace is used for the racial detection.
                 </p>
                 <br><br>
-                <div id='tags'>
+                <div class='tags'>
                     <span class='tag'>Python</span>
                     <span class='tag'>Javascript</span>
                     <span class='tag'>PIL</span>
