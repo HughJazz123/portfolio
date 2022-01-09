@@ -8,7 +8,7 @@ var display_instructions = true;
 var current_dir = 'right';
 
 console.log("Hi! If you want to see the source code, it's on my github here: https://github.com/liyunze-coding/portfolio")
-console.log("There's definitely nothing special when you hit 10k score...")
+console.log("There's definitely nothing special when you hit 5k score...")
 function near_round(n,scale){
     // Smaller multiple
     let a = parseInt(n / scale, 10) * scl;
@@ -114,7 +114,7 @@ function draw(){
     if (s.eat(food)){
         pickLocation();
         score += 1000;
-        if (score === 10000){
+        if (score >= 5000){
             display_hidden_text = true;
         }
     }

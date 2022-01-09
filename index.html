@@ -21,8 +21,15 @@
                 window.scrollTo(0, 0);
             }
             $(window).on('load', async function(){
-                await move('loader');
-                $(".loader-wrapper").fadeOut('fast');
+                console.log($(window).width());
+                if ($(window).width() > 1000) {
+                    await move('loader');
+                } else {
+                    document.getElementById('loader').style.width = '100%';
+                    document.getElementsByTagName('nav')[0].style['font-size'] = '30px';
+                    $(".loader-wrapper").delay(1000);
+                }
+                $(".loader-wrapper").fadeOut('slow');
             });
         </script>
         <!-- made by www.metatags.org --> 
@@ -46,9 +53,7 @@
                 opacity:0.8;
                 border:none;
             }
-
-            /* nav{
-                font-size: 30px;
+            /* 
             } */
             
         </style>
@@ -68,7 +73,5 @@
             <img src='static/images/logo.jpg' class='loader-image'>
             <span class="loader"><span class="loader-inner" id='loader'></span></span>
         </div>
-
-        
     </body>
 </html>
