@@ -7,8 +7,8 @@ var display_hidden_text = false;
 var display_instructions = true;
 var current_dir = 'right';
 
-console.log("Hi! If you want to see the source code, it's on my github here: https://github.com/liyunze-coding/portfolio")
-console.log("There's definitely nothing special when you hit 5k score...")
+console.log("Hi! If you want to see the source code, it's on my github here: https://github.com/liyunze-coding/portfolio");
+console.log("There's definitely nothing special when you hit 5k score...");
 function near_round(n,scale){
     // Smaller multiple
     let a = parseInt(n / scale, 10) * scl;
@@ -16,12 +16,13 @@ function near_round(n,scale){
 }
 
 function windowResized() {
+    console.log('new',windowWidth, windowHeight);
     resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
     s = new Snake();
     pickLocation();
     score = 0;
     up_button.size(60,60);
-    up_button.position(width-120, height-85);
+    up_button.position(width-120, height-95);
 
     left_button.size(60,60);
     left_button.position(width-190, height-45);
@@ -30,19 +31,21 @@ function windowResized() {
     right_button.position(width-50, height-45);
 
     down_button.size(60,60);
-    down_button.position(width-120, height-10);
+    down_button.position(width-120, height);
 }
 
 function setup(){
-    createCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
-    document.body.style.overflow = "hidden";
+    createCanvas(windowWidth, windowHeight);
+    scl = width/70;
+    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
     s = new Snake();
     frameRate(10);
+
     pickLocation();
 
     up_button = createButton(`↑`);
     up_button.size(60,60);
-    up_button.position(width-120, height-85);
+    up_button.position(width-120, height-75);
 
     left_button = createButton(`←`);
     left_button.size(60,60);
@@ -54,7 +57,7 @@ function setup(){
 
     down_button = createButton(`↓`);
     down_button.size(60,60);
-    down_button.position(width-120, height-10);
+    down_button.position(width-120, height-20);
 
     up_button.mousePressed(()=>{
         if (current_dir !== 'down'){
@@ -92,18 +95,18 @@ function draw(){
     fill(230,230,230);
     textFont('montserrat-bold');
     textAlign(CENTER);
-    textSize(50);
+    textSize(width/30);
     text('Hey! I am Ryan.\nThis is my portfolio website!', width/2, height/2-50);
-    textSize(20);
+    textSize(width/70);
     text('Enjoy this snake game to keep yourself entertained :D', width/2, height/2+50);
 
     if(display_hidden_text){
-        textSize(15);
+        textSize(width/70);
         text('Glad you\'re having fun with the snake game!', width/2, height/2+80);
     }
 
     textAlign(LEFT);
-    textSize(20);
+    textSize(width/70);
     if (best < score) best = score;
     text(`Score: ${score}   Best: ${best}`, 10, height-10);
 

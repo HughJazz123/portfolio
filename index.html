@@ -22,14 +22,6 @@
             }
             $(window).on('load', async function(){
                 await move('loader');
-                console.log($(window).width());
-
-                if ($(window).width() < 500){
-                    $("#defaultCanvas0").hide();
-                    $("button").hide();
-                } else {
-                    $("#rotasi").hide();
-                }
 
                 $(".loader-wrapper").fadeOut('fast');
             });
@@ -49,6 +41,8 @@
                 display: block;
                 overflow:hidden;
                 position:absolute;
+                width:100%;
+                height:100%;
             }
             button{
                 z-index:20;
@@ -82,7 +76,6 @@
                 </ul>
             </nav>
         </div>
-        <img src='static\images\rotate_phone.jpg' id='rotasi'>
         <div class="loader-wrapper">
             <img src='static/images/logo.jpg' class='loader-image'>
             <span class="loader"><span class="loader-inner" id='loader'></span></span>
