@@ -16,7 +16,7 @@ function near_round(n,scale){
 }
 
 function windowResized() {
-    resizeCanvas(near_round(windowWidth,scl), near_round(windowHeight,scl)-scl*5);
+    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
     s = new Snake();
     pickLocation();
     score = 0;

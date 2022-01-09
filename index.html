@@ -21,15 +21,17 @@
                 window.scrollTo(0, 0);
             }
             $(window).on('load', async function(){
+                await move('loader');
                 console.log($(window).width());
-                if ($(window).width() > 1000) {
-                    await move('loader');
+
+                if ($(window).width() < 500){
+                    $("#defaultCanvas0").hide();
+                    $("button").hide();
                 } else {
-                    document.getElementById('loader').style.width = '100%';
-                    document.getElementsByTagName('nav')[0].style['font-size'] = '30px';
-                    $(".loader-wrapper").delay(1000);
+                    $("#rotasi").hide();
                 }
-                $(".loader-wrapper").fadeOut('slow');
+
+                $(".loader-wrapper").fadeOut('fast');
             });
         </script>
         <!-- made by www.metatags.org --> 
@@ -37,6 +39,7 @@
         <meta name="description" content= "Hi, My name is Ryan! I love programming, Valorant and playing music.  I made this website from scratch with HTML/CSS and Javascript." />
         <meta name='keywords' content='Ryan Lee In Zer, portfolio, python, javascript, nodejs, node js, automation, snake, liyunze, programming'>
         <meta name="robots" content= ", follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <style>
             canvas{
                 padding-left: 0;
@@ -53,7 +56,17 @@
                 opacity:0.8;
                 border:none;
             }
-            /* 
+
+            #rotasi{
+                z-index:-1;
+                position:absolute;
+                width:100%;
+            }
+
+
+
+            /* nav{
+                font-size: 30px;
             } */
             
         </style>
@@ -69,9 +82,10 @@
                 </ul>
             </nav>
         </div>
+        <img src='static\images\rotate_phone.jpg' id='rotasi'>
         <div class="loader-wrapper">
             <img src='static/images/logo.jpg' class='loader-image'>
             <span class="loader"><span class="loader-inner" id='loader'></span></span>
-        </div>
+        </div>        
     </body>
 </html>
