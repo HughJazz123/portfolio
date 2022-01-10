@@ -45,7 +45,7 @@ function setup(){
 
     up_button = createButton(`↑`);
     up_button.size(60,60);
-    up_button.position(width-120, height-75);
+    up_button.position(width-120, height-95);
 
     left_button = createButton(`←`);
     left_button.size(60,60);
@@ -57,7 +57,7 @@ function setup(){
 
     down_button = createButton(`↓`);
     down_button.size(60,60);
-    down_button.position(width-120, height-20);
+    down_button.position(width-120, height);
 
     up_button.mousePressed(()=>{
         if (current_dir !== 'down'){
