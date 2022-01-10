@@ -37,7 +37,7 @@ function windowResized() {
 function setup(){
     createCanvas(windowWidth, windowHeight);
     scl = width/70;
-    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
+    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*3);
     s = new Snake();
     frameRate(10);
 
