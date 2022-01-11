@@ -111,11 +111,8 @@ function pickLocation(){
     food = createVector(food_x, food_y);
 
     for (t of s.tail){
-        console.log('tail coord',t.x, t.y);
         tail_positions.push([parseInt(t.x/scl), parseInt(t.y/scl)]);
     }
-    console.log('food', [food.x, food.y]);
-    console.log(tail_positions);
     
     while (includesArray(tail_positions, [food.x, food.y]) 
     || includesArray(tail_positions, [food.x-1, food.y]) 
