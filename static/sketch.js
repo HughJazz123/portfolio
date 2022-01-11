@@ -53,7 +53,7 @@ function highlight_arrow(dir){
 
 function setup(){
     createCanvas(windowWidth, windowHeight);
-    //scl = parseInt(width/70);
+    scl = parseInt(width/70);
     resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
     s = new Snake();
     frameRate(10);
