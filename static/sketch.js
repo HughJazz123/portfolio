@@ -6,9 +6,15 @@ var best = 0;
 var display_hidden_text = false;
 var display_instructions = true;
 var current_dir = 'right';
+var tail_positions = [];
 
 console.log("Hi! If you want to see the source code, it's on my github here: https://github.com/liyunze-coding/portfolio");
 console.log("There's definitely nothing special when you hit 5k score...");
+
+const includesArray = (data, arr) => {
+    return data.some(e => Array.isArray(e) && e.every((o, i) => Object.is(arr[i], o)));
+}
+
 function near_round(n,scale){
     // Smaller multiple
     let a = parseInt(n / scale, 10) * scl;
@@ -16,7 +22,6 @@ function near_round(n,scale){
 }
 
 function windowResized() {
-    console.log('new',windowWidth, windowHeight);
     resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
     s = new Snake();
     pickLocation();
@@ -34,49 +39,65 @@ function windowResized() {
     down_button.position(width-120, height);
 }
 
+function highlight_arrow(dir){
+    directions = ['left','right', 'up','down'];
+
+    for (d of directions){
+        if (d === dir){
+            document.getElementById(d).style.border = "2px solid #505050";
+        } else {
+            document.getElementById(d).style.border = "1px solid #505050";
+        }
+    }
+}
+
 function setup(){
     createCanvas(windowWidth, windowHeight);
-    scl = width/70;
-    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*3);
+    //scl = parseInt(width/70);
+    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
     s = new Snake();
     frameRate(10);
 
     pickLocation();
 
     up_button = createButton(`↑`);
+    up_button.id('up');
     up_button.size(60,60);
     up_button.position(width-120, height-95);
 
     left_button = createButton(`←`);
+    left_button.id('left');
     left_button.size(60,60);
     left_button.position(width-190, height-45);
 
     right_button = createButton(`→`);
+    right_button.id('right');
     right_button.size(60,60);
     right_button.position(width-50, height-45);
 
     down_button = createButton(`↓`);
+    down_button.id('down');
     down_button.size(60,60);
     down_button.position(width-120, height);
 
     up_button.mousePressed(()=>{
         if (current_dir !== 'down'){
-            moveUp()
+            moveUp();
         }
     });
     left_button.mousePressed(()=>{
         if (current_dir !== 'right'){
-            moveLeft()
+            moveLeft();
         }
     });
     right_button.mousePressed(()=>{
         if (current_dir !== 'left'){
-            moveRight()
+            moveRight();
         }
     });
     down_button.mousePressed(()=>{
         if (current_dir !== 'up'){
-            moveDown()
+            moveDown();
         }
     });
 }
@@ -86,7 +107,28 @@ function pickLocation(){
     var rows = floor(height/scl);
     food_x = floor(random(cols-2))+1;
     food_y = floor(random(rows-2))+1;
+
     food = createVector(food_x, food_y);
+
+    for (t of s.tail){
+        console.log('tail coord',t.x, t.y);
+        tail_positions.push([parseInt(t.x/scl), parseInt(t.y/scl)]);
+    }
+    console.log('food', [food.x, food.y]);
+    console.log(tail_positions);
+    
+    while (includesArray(tail_positions, [food.x, food.y]) 
+    || includesArray(tail_positions, [food.x-1, food.y]) 
+    || includesArray(tail_positions, [food.x, food.y-1]) 
+    || includesArray(tail_positions, [food.x+1, food.y]) 
+    || includesArray(tail_positions, [food.x, food.y+1])){
+        food_x = floor(random(cols-2))+1;
+        food_y = floor(random(rows-2))+1;
+
+        food = createVector(food_x, food_y);
+    }
+
+    tail_positions = [];
     food.mult(scl);
 }
 
@@ -128,22 +170,25 @@ function draw(){
 function moveUp(){
     s.dir(0,-1);
     current_dir = 'up';
-    return false;
+    highlight_arrow('up');
 }
 
 function moveDown(){
     s.dir(0,1);
     current_dir = 'down';
+    highlight_arrow('down');
 }
 
 function moveRight(){
     s.dir(1,0);
     current_dir = 'right';
+    highlight_arrow('right');
 }
 
 function moveLeft(){
     s.dir(-1,0);
     current_dir = 'left';
+    highlight_arrow('left');
 }
 
 function keyPressed(){

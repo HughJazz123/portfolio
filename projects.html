@@ -23,8 +23,8 @@
                 window.scrollTo(0, 0);
             }
 
-            console.log(`I hope the Trigger Me Elmo isn't too edgy.  If it is... sorry.`);
-            console.log(`Literally 5/6 of the projects have PIL and OpenCV...`);
+            //console.log(`I hope the Trigger Me Elmo isn't too edgy.  If it is... sorry.`);
+            console.log(`Literally 4/5 of the projects have PIL and OpenCV...`);
             $(window).on('load', async function(){
                 disableScroll();
                 await move('loader');
@@ -234,7 +234,6 @@
                         <source src='./static/videos/monkeytype.mov'>
                     </video>
                 </a>
-                
                 <p class='project-description'>
                     A bot that types around 600-700 words per second on Monkey Type. Does a little image processing with OpenCV, and reads text with PyTesseract.
                     PyAutoGUI is used to type the words out.
@@ -248,14 +247,13 @@
                     <span class='tag'>PyTesseract</span>
                 </div>
             </div>
-            <div class='project-box'>
-                <h4>Trigger Me Elmo</h4>
+            <!-- <div class='project-box'>
+                <h4>"Compliment" Me Elmo</h4>
                 <a href="https://github.com/liyunze-coding/Trigger-Me-Elmo-2" target='_blank'>
                     <video onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
                         <source src='./static/videos/elmo_demo.mov'>
                     </video>
                 </a>
-                
                 <p class='project-description'>
                     A web app where Elmo sees your face, then gives "compliments" based on the race it thinks you are. DeepFace is used for racial detection.
                 </p>
@@ -268,7 +266,7 @@
                     <span class='tag'>DeepFace</span>
                     <span class='tag'>p5.js</span>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="loader-wrapper">
             <img src='static/images/logo.jpg' class='loader-image'>

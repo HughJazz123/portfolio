@@ -175,3 +175,12 @@ h4 {
 		margin-left: 20px;
 	}
 }
+
+@media screen and (max-width: 400px) {
+	nav {
+		font-size: 12px;
+	}
+	nav li {
+		margin-left: 15px;
+	}
+}

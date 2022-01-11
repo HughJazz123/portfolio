@@ -149,7 +149,6 @@
                 transform: scale(1.15);
             }
 
-            /* @media (hover: hover) and (pointer: fine) { */
             .titleChar:hover {
                 position:relative;
                 bottom: 2px;
@@ -162,7 +161,7 @@
             .limeText:hover{
                 color:#1cff00;
             }
-            /* } */
+            
             a{
                 text-decoration: none;
             }
@@ -185,8 +184,16 @@
                     grid-auto-flow: unset;
                     row-gap: 10px;
                 }
-            }
 
+                .main-content{
+                    width:95%;
+                }
+            }
+            @media screen and (max-width: 400px) {
+                .console-container {
+                    font-size:32px;
+                }
+            }
         </style>
     </head>
     <body>
