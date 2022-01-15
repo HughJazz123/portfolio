@@ -3,6 +3,7 @@ var scl = 20;
 var food;
 var score = 0;
 var best = 0;
+var font_scale = 1;
 var display_hidden_text = false;
 var display_instructions = true;
 var current_dir = 'right';
@@ -134,18 +135,25 @@ function draw(){
     fill(230,230,230);
     textFont('montserrat-bold');
     textAlign(CENTER);
-    textSize(width/30);
+
+    if (width < 700){
+        font_scale = 2
+    } else {
+        font_scale = 1
+    }
+
+    textSize(width/30*font_scale);
     text('Hey! I am Ryan.\nThis is my portfolio website!', width/2, height/2-50);
-    textSize(width/70);
+    textSize(width/70*font_scale);
     text('Enjoy this snake game to keep yourself entertained :D', width/2, height/2+50);
 
     if(display_hidden_text){
-        textSize(width/70);
+        textSize(width/70*font_scale);
         text('Glad you\'re having fun with the snake game!', width/2, height/2+80);
     }
 
     textAlign(LEFT);
-    textSize(width/70);
+    textSize(width/70*font_scale);
     if (best < score) best = score;
     text(`Score: ${score}   Best: ${best}`, 10, height-10);
 
