@@ -6,8 +6,9 @@ var best = 0;
 var font_scale = 1;
 var display_hidden_text = false;
 var display_instructions = true;
-var current_dir = 'right';
 var tail_positions = [];
+var current_dir;
+const delay = 80;
 
 console.log("Hi! If you want to see the source code, it's on my github here: https://github.com/liyunze-coding/portfolio");
 console.log("There's definitely nothing special when you hit 5k score...");
@@ -174,25 +175,33 @@ function draw(){
 
 function moveUp(){
     s.dir(0,-1);
-    current_dir = 'up';
+    setTimeout(()=>{
+        current_dir = 'up';
+    }, delay)
     highlight_arrow('up');
 }
 
 function moveDown(){
     s.dir(0,1);
-    current_dir = 'down';
+    setTimeout(()=>{
+        current_dir = 'down';
+    }, delay)
     highlight_arrow('down');
 }
 
 function moveRight(){
     s.dir(1,0);
-    current_dir = 'right';
+    setTimeout(()=>{
+        current_dir = 'right';
+    }, delay)
     highlight_arrow('right');
 }
 
 function moveLeft(){
     s.dir(-1,0);
-    current_dir = 'left';
+    setTimeout(()=>{
+        current_dir = 'left';
+    }, delay)
     highlight_arrow('left');
 }
 
