@@ -77,5 +77,4 @@ jspm_packages
 .env
 
 #custom file
-to-do-list.txt
 helper.py
