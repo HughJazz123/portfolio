@@ -58,7 +58,7 @@ nav {
 	font-size: 20px;
 	width: 95%;
 	justify-content: right;
-	padding-bottom: 20px;
+	padding-bottom: 30px;
 }
 
 nav ul {
@@ -71,7 +71,6 @@ nav li {
 	display: inline-block;
 	margin-left: 70px;
 	padding-top: 10px;
-	padding-bottom: 10px;
 	position: relative;
 }
 

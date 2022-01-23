@@ -24,8 +24,9 @@ function near_round(n,scale){
 }
 
 function windowResized() {
-    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
+    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight-70,scl));
     s = new Snake();
+    scl = parseInt(width/70);
     pickLocation();
     score = 0;
     up_button.size(60,60);
@@ -56,7 +57,7 @@ function highlight_arrow(dir){
 function setup(){
     createCanvas(windowWidth, windowHeight);
     scl = parseInt(width/70);
-    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight,scl)-scl*5);
+    resizeCanvas(near_round(windowWidth,scl)-scl, near_round(windowHeight-70,scl));
     s = new Snake();
     frameRate(10);
 
