@@ -4,7 +4,7 @@ var food;
 var score = 0;
 var best = 0;
 var font_scale = 1;
-var display_hidden_text = false;
+var display_hidden_text = true;
 var display_instructions = true;
 var tail_positions = [];
 var current_dir;
@@ -147,11 +147,11 @@ function draw(){
     textSize(width/30*font_scale);
     text('Hey! I am Ryan.\nThis is my portfolio website!', width/2, height/2-50);
     textSize(width/70*font_scale);
-    text('Enjoy this snake game to keep yourself entertained :D', width/2, height/2+50);
+    text('Enjoy this snake game to keep yourself entertained :D', width/2, height/2+80);
 
     if(display_hidden_text){
         textSize(width/70*font_scale);
-        text('Glad you\'re having fun with the snake game!', width/2, height/2+80);
+        text('Glad you\'re having fun with the snake game!', width/2, height/2+120);
     }
 
     textAlign(LEFT);
