@@ -4,7 +4,7 @@ var food;
 var score = 0;
 var best = 0;
 var font_scale = 1;
-var display_hidden_text = true;
+var display_hidden_text = false;
 var display_instructions = true;
 var tail_positions = [];
 var current_dir;
