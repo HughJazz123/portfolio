@@ -9,31 +9,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
         <script src='scripts/contact.js'></script>
-        <script src="scripts/preloader.js"></script>
-        <script src="scripts/scrolling.js"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H6ST10QSZH"></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-H6ST10QSZH');
-            window.onbeforeunload = function () {
-                window.scrollTo(0, 0);
-            }
-
             console.log('Imagine how narcissistic you have to be, writing so many paragraphs about yourself ugh');
 
             $(window).on('load', async function(){
-                disableScroll();
-                await move('loader');
                 let date = new Date();
                 let year = date.getFullYear();
                 let age = year - 2004;
 
                 document.getElementById('age').innerText = age;
-                $(".loader-wrapper").fadeOut('fast');
-                enableScroll();
             });
         </script>
         <title>About</title>
@@ -78,6 +62,23 @@
                 width:80%;
             }
 
+            #greeting {
+                margin-top:30px;
+                margin-bottom:30px;
+            }
+
+            #life-story {
+                font-family: 'montserrat';
+                line-height: 1.5em;
+                margin-bottom: 60px;
+                font-size:16px;
+            }
+
+            #contact-title {
+                margin-bottom:15px;
+                font-size:20px;
+            }
+
             #yt-vid{
                 text-decoration: underline;
                 color:#fafafa;
@@ -111,19 +112,12 @@
         </nav>
         <div class='card'>
             <img src='static/images/IMG_20210220_224031.jpg' id='pfp'>
-            <h1>Hi I'm Ryan!</h1>
-            <br>
-            <p style='font-family:montserrat;line-height: 1.5em;'>
+            <h1 id="greeting">Hi I'm Ryan!</h1>
+            <p id="life-story">
                 I am <span id='age'></span> years old living in Asia.
                 <br><br>
-                My first experience with programming was when my parents decided to send me to a learning centre to 
-                learn Python and Maths when I was 13.
-                <br><br>
-                At first, I did not have an interest in the concept of programming. 
-                I was learning to draw shapes with Python's Turtle and learning basic geometry repetitively over the course of a few months.
-                <br><br>
-                One day, I discovered that I was able to code outside the limited bubble restricted by the learning centre; 
-                I did not need to use their machines nor their websites!
+                I began programming since I was 14, learning Python from a coding learning center. 
+                I learnt from that center for 4-10 months before starting my own journey of discovering other aspects of what Python is capable of.
                 <br><br>
                 So along my journey of discovering the potential of Python, I explored the world of "image processing", 
                 where I discovered how to use PIL and OpenCV. 
@@ -137,8 +131,7 @@
                 I will continue honing my skills in Python and Javascript, 
                 as I continue to explore the world of programming with curiosity and wonder!
             </p>
-            <br>
-            <h3>Contact me below!</h3>
+            <h3 id="contact-title">Contact me below!</h3>
             <div class="container" style='width:80%; position:absolute;'>
             <form action='https://formspree.io/f/xgerwrwj' method='POST'>
             
@@ -160,11 +153,6 @@
             </form>
             <br><br>
             </div>
-        </div>
-        <br>
-        <div class="loader-wrapper">
-            <img src='static/images/logo.jpg' class='loader-image'>
-            <span class="loader"><span class="loader-inner" id='loader'></span></span>
         </div>
     </body>
 </html>

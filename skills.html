@@ -9,16 +9,8 @@
         <meta name="robots" content= ", follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
-        <script src="scripts/preloader.js"></script>
-        <script src="scripts/scrolling.js"></script>
         <script src="scripts/animation.js"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H6ST10QSZH"></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-H6ST10QSZH');
             function consoleText(words, id, colors) {
                 var visible = true;
                 var con = document.getElementById('console');
@@ -69,19 +61,12 @@
             console.log(`Sometimes I think about the future, contemplating if I'm ever good enough to land myself a good programming job with good pay.`)
 
             $(window).on('load', async function(){
-                disableScroll();
-                await move('loader');
-                $(".loader-wrapper").fadeOut('fast');
-                enableScroll();
-                consoleText(['Skills', 'Hello World.','Programming', 'Content Creation', 'Javascript', 'HTML5','CSS3'], 'text',['#fff','#00fbff','#1cff00', '#00fbff', '#f0db4f','#f16529','#33a7dd']);
+                consoleText(['Skills', 'Hello World','Programming', 'Content Creation', 'Javascript', 'HTML5','CSS3'], 'text',['#fff','#00fbff','#1cff00', '#00fbff', '#f0db4f','#f16529','#33a7dd']);
             });
         </script>
         <style>
             @import url(https://fonts.googleapis.com/css?family=Khula:700);
 
-            p{
-                font-size:15px;
-            }
             .main-content{
                 line-height:1.2em;
                 width:80%;
@@ -154,6 +139,17 @@
                 display: inline-block;
                 font-size:25px;
             }
+
+            .details {
+                line-height: 1.5em;
+                font-size:15px;
+            }
+
+            .titleCharacters {
+                margin-top:15px;
+                margin-bottom:15px;
+            }
+
             .cyanText{
                 color:#00fbff;
             }
@@ -161,15 +157,15 @@
                 color:#1cff00;
             }
 
-            .magentaText{
-                color:#db59ff;
-            }
-
-            .purpleText{
-                color:#c06dff;
-            }
-
             .orangeText{
+                color:#f16529;
+            }
+
+            .lightBlueText{
+                color:#33a7dd;
+            }
+
+            .javascriptText{
                 color:#f0db4f;
             }
             
@@ -220,7 +216,7 @@
         <div class='main-content'>
             <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
             <section id='programming'>
-                <h2>
+                <h2 class='titleCharacters'>
                     <span class='titleChar limeText'>P</span
                     ><span class='titleChar limeText'>r</span
                     ><span class='titleChar limeText'>o</span
@@ -234,13 +230,13 @@
                     ><span class='titleChar limeText'>g</span
                     >
                 </h2>
-                <p style='line-height: 1.5em;'>
+                <p class="details">
                     I have more experience in Python than Javascript.
                     I use Python for automation, image processing and web scraping and use Javascript for server-side development and web development.
                     <br><br>
                     I have made commissions for several clients, mainly Discord bots and Twitch extensions.
                 </p>
-                <h2>
+                <h2 class='titleCharacters'>
                     <span class='titleChar cyanText'>C</span
                     ><span class='titleChar cyanText'>o</span
                     ><span class='titleChar cyanText'>n</span
@@ -259,7 +255,7 @@
                     ><span class='titleChar cyanText'>n</span
                     >
                 </h2>
-                <p style='line-height: 1.5em;'>
+                <p class="details">
                     I stream co-working on <a class="socials" target="_blank" href="https://twitch.tv/RyanPython">Twitch</a>, and have experience in making custom Twitch chat bots and custom overlays for my OBS. I made my overlays using HTML+CSS and Javascript.
                     <br><br>
                     I also produce some <a class="socials" target="_blank" href='https://www.youtube.com/channel/UCaota2WuI4lJ3ts2NHrc6-w'>YouTube</a> videos, showcasing the process of making a project, finishing it and demonstrating it.
@@ -267,126 +263,147 @@
                     I have experience in streaming a mobile game Call Of Duty: Mobile to YouTube for my school's technology society, 
                     where I streamed and commentated with a co-host for 4 hours straight.
                 </p>
-                <h2>
-                    <span class='titleChar orangeText'>L</span
-                    ><span class='titleChar orangeText'>a</span
-                    ><span class='titleChar orangeText'>n</span
-                    ><span class='titleChar orangeText'>g</span
-                    ><span class='titleChar orangeText'>u</span
-                    ><span class='titleChar orangeText'>a</span
-                    ><span class='titleChar orangeText'>g</span
-                    ><span class='titleChar orangeText'>e</span
-                    ><span class='titleChar orangeText'>s</span
+                <h2 class='titleCharacters'>
+                    <span class='titleChar javascriptText'>L</span
+                    ><span class='titleChar javascriptText'>a</span
+                    ><span class='titleChar javascriptText'>n</span
+                    ><span class='titleChar javascriptText'>g</span
+                    ><span class='titleChar javascriptText'>u</span
+                    ><span class='titleChar javascriptText'>a</span
+                    ><span class='titleChar javascriptText'>g</span
+                    ><span class='titleChar javascriptText'>e</span
+                    ><span class='titleChar javascriptText'>s</span
                     ><span> </span
-                    ><span class='titleChar orangeText'>I</span
+                    ><span class='titleChar javascriptText'>I</span
                     ><span> </span
-                    ><span class='titleChar orangeText'>k</span
-                    ><span class='titleChar orangeText'>n</span
-                    ><span class='titleChar orangeText'>o</span
-                    ><span class='titleChar orangeText'>w</span
+                    ><span class='titleChar javascriptText'>k</span
+                    ><span class='titleChar javascriptText'>n</span
+                    ><span class='titleChar javascriptText'>o</span
+                    ><span class='titleChar javascriptText'>w</span
                     >
                 </h2>
                 <div class="icons">
+                    
                     <div class='lime item'>
-                        <img class='icon-img' src="./static/images/python.png">
+                        <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">
+                            <img class='icon-img' src="./static/images/python.png">
+                        </a>
                         <div class='item-name'>Python</div>
                     </div>
                     <div class='cyan item'>
-                        <img class='icon-img' src="./static/images/javascript.png">
+                        <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">
+                            <img class='icon-img' src="./static/images/javascript.png">
+                        </a>
                         <div class='item-name'>Javascript</div>
                     </div>
                     <div class='lime item'>
-                        <img class='icon-img' src="./static/images/R.png">
+                        <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank">
+                            <img class='icon-img' src="./static/images/R.png">
+                        </a>
                         <div class='item-name'>R</div>
                     </div>
                     <div class='cyan item'>
-                        <img class='icon-img' src="./static/images/html5.png">
+                        <a href="https://en.wikipedia.org/wiki/HTML" target="_blank">
+                            <img class='icon-img' src="./static/images/html5.png">
+                        </a>
                         <div class='item-name'>HTML</div>
                     </div>
                 </div>
                 <br>
-                <h2>
-                    <span class='titleChar magentaText'>L</span
-                    ><span class='titleChar magentaText'>i</span
-                    ><span class='titleChar magentaText'>b</span
-                    ><span class='titleChar magentaText'>r</span
-                    ><span class='titleChar magentaText'>a</span
-                    ><span class='titleChar magentaText'>r</span
-                    ><span class='titleChar magentaText'>i</span
-                    ><span class='titleChar magentaText'>e</span
-                    ><span class='titleChar magentaText'>s</span
+                <h2 class='titleCharacters'>
+                    <span class='titleChar orangeText'>L</span
+                    ><span class='titleChar orangeText'>i</span
+                    ><span class='titleChar orangeText'>b</span
+                    ><span class='titleChar orangeText'>r</span
+                    ><span class='titleChar orangeText'>a</span
+                    ><span class='titleChar orangeText'>r</span
+                    ><span class='titleChar orangeText'>i</span
+                    ><span class='titleChar orangeText'>e</span
+                    ><span class='titleChar orangeText'>s</span
                     ><span> </span
-                    ><span class='titleChar magentaText'>&</span
+                    ><span class='titleChar orangeText'>&</span
                     ><span> </span
-                    ><span class='titleChar magentaText'>F</span
-                    ><span class='titleChar magentaText'>r</span
-                    ><span class='titleChar magentaText'>a</span
-                    ><span class='titleChar magentaText'>m</span
-                    ><span class='titleChar magentaText'>e</span
-                    ><span class='titleChar magentaText'>w</span
-                    ><span class='titleChar magentaText'>o</span
-                    ><span class='titleChar magentaText'>r</span
-                    ><span class='titleChar magentaText'>k</span
-                    ><span class='titleChar magentaText'>s</span
+                    ><span class='titleChar orangeText'>F</span
+                    ><span class='titleChar orangeText'>r</span
+                    ><span class='titleChar orangeText'>a</span
+                    ><span class='titleChar orangeText'>m</span
+                    ><span class='titleChar orangeText'>e</span
+                    ><span class='titleChar orangeText'>w</span
+                    ><span class='titleChar orangeText'>o</span
+                    ><span class='titleChar orangeText'>r</span
+                    ><span class='titleChar orangeText'>k</span
+                    ><span class='titleChar orangeText'>s</span
                     >
                 </h2>
                 <div class="icons">
                     <div class='lime item'>
-                        <img class='icon-img' src="./static/images/selenium.png">
+                        <a href="https://en.wikipedia.org/wiki/Selenium_(software)" target="_blank">
+                            <img class='icon-img' src="./static/images/selenium.png">
+                        </a>
                         <div class='item-name'>Selenium</div>
                     </div>
                     <div class='cyan item'>
-                        <img class='icon-img' src="./static/images/opencv.png">
+                        <a href="https://en.wikipedia.org/wiki/OpenCV" target="_blank">
+                            <img class='icon-img' src="./static/images/opencv.png">
+                        </a>
                         <div class='item-name'>OpenCV</div>
                     </div>
                     <div class='lime item'>
-                        <img class='icon-img' src="./static/images/node-js.png">
-                        <div class='item-name'>node.js</div>
+                        <a href="https://en.wikipedia.org/wiki/JQuery" target="_blank">
+                            <img class='icon-img' src="./static/images/jquery.png">
+                        </a>
+                        <div class='item-name'>jQuery</div>
                     </div>
                     <div class='cyan item'>
-                        <img class='icon-img' src="./static/images/p5js.png">
+                        <a href="https://en.wikipedia.org/wiki/Processing_(programming_language)#Processing.js" target="_blank">
+                            <img class='icon-img' src="./static/images/p5js.png">
+                        </a>
                         <div class='item-name'>p5.js</div>
                     </div>
                 </div>
                 <br>
-                <h2>
-                    <span class='titleChar purpleText'>T</span
-                    ><span class='titleChar purpleText'>o</span
-                    ><span class='titleChar purpleText'>o</span
-                    ><span class='titleChar purpleText'>l</span
-                    ><span class='titleChar purpleText'>s</span
+                <h2 class='titleCharacters'>
+                    <span class='titleChar lightBlueText'>T</span
+                    ><span class='titleChar lightBlueText'>o</span
+                    ><span class='titleChar lightBlueText'>o</span
+                    ><span class='titleChar lightBlueText'>l</span
+                    ><span class='titleChar lightBlueText'>s</span
                     ><span> </span
-                    ><span class='titleChar purpleText'>I</span
+                    ><span class='titleChar lightBlueText'>I</span
                     ><span> </span
-                    ><span class='titleChar purpleText'>u</span
-                    ><span class='titleChar purpleText'>s</span
-                    ><span class='titleChar purpleText'>e</span
+                    ><span class='titleChar lightBlueText'>u</span
+                    ><span class='titleChar lightBlueText'>s</span
+                    ><span class='titleChar lightBlueText'>e</span
                     >
                 </h2>
                 <div class="icons">
                     <div class='lime item'>
-                        <img class='icon-img' src="./static/images/git.png">
+                        <a href="https://en.wikipedia.org/wiki/Git" target="_blank">
+                            <img class='icon-img' src="./static/images/git.png">
+                        </a>
                         <div class='item-name'>Git</div>
                     </div>
                     <div class='cyan item'>
-                        <img class='icon-img' src="./static/images/vscode.png">
+                        <a href="https://en.wikipedia.org/wiki/Visual_Studio_Code" target="_blank">
+                            <img class='icon-img' src="./static/images/vscode.png">
+                        </a>
                         <div class='item-name'>VS Code</div>
                     </div>
                     <div class='lime item'>
-                        <img class='icon-img' src="./static/images/davinci.png">
+                        <a href="https://en.wikipedia.org/wiki/DaVinci_Resolve" target="_blank">
+                            <img class='icon-img' src="./static/images/davinci.png">
+                        </a>
                         <div class='item-name'>Davinci Resolve 17</div>
                     </div>
                     <div class='cyan item'>
-                        <img class='icon-img' src="./static/images/obs.png">
-                        <div class='item-name'>OBS</div>
+                        <a href="https://en.wikipedia.org/wiki/OBS_Studio" target="_blank">
+                            <img class='icon-img' src="./static/images/obs.png">
+                        </a>
+                        <div class='item-name'>OBS Studio</div>
                     </div>
                 </div>
             </section>
             <br><br><br>
-        </div>
-        <div class="loader-wrapper">
-            <img src='static/images/logo.jpg' class='loader-image'>
-            <span class="loader"><span class="loader-inner" id='loader'></span></span>
         </div>
     </body>
 </html>

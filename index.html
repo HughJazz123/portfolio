@@ -6,23 +6,42 @@
         <link rel="shortcut icon" type="image/jpg" href="static/images/logo.jpg"/>
         <title>Ryan's Portfolio</title>
         <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
-        <script src="static/sketch.js"></script>
-        <script src="static/snake.js"></script>
-        <script src="scripts/preloader.js"></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H6ST10QSZH"></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+            function moveUp(id, length){
+                $(id).animate({top:`-=${length}%`}, {duration:900});
+            }
 
-            gtag('config', 'G-H6ST10QSZH');
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
             window.onbeforeunload = function () {
                 window.scrollTo(0, 0);
             }
+
             $(window).on('load', async function(){
-                await move('loader');
-                $(".loader-wrapper").fadeOut('fast');
+                let date = new Date();
+                let year = date.getFullYear();
+
+                document.getElementById('no-of-years').innerText = year - 2018;
+
+                moveUp('#introduce-div',10);
+                await sleep(500);
+                moveUp('#hello-div',16);
+                await sleep(500);
+                moveUp('#introduce-2-div',22);
+                await sleep(800);
+
+                $('#img-div').animate({opacity:1.0}, {duration:700});
+            });
+
+            var resizeTimeout;
+            window.addEventListener('resize', function(event) {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(function(){
+                    window.location.reload();
+                }, 3000);
             });
         </script>
         <meta name='author' content="Ryan">
@@ -30,26 +49,154 @@
         <meta name="robots" content= ", follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <style>
-            canvas{
-                padding-left: 0;
-                padding-right: 0;
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-                overflow:hidden;
-                position:absolute;
+            :root{
+                --introduce-top:45%;
+                --hello-top:54%;
+                --introduce-2-top:75%;
             }
-            button{
+
+            html, body {
+                margin: 0; 
+                height: 100%; 
+                overflow: hidden;
+            }
+
+            #hello-div{
+                position:absolute;
+                font-size:30px;
+                
+                left:10%;
+                top:var(--hello-top);
                 z-index:3;
-                position:absolute;
-                background-color: #191919;
-                color:#909090;
-                border:1px solid #505050;
-                background: rgb(25, 25, 25); /* Fallback for older browsers without RGBA-support */
-                background: rgba(25, 25, 25, 0);
-                outline:none;
             }
-            
+
+            #block-hello-div {
+                position:absolute;
+                height:40%;
+                width:100%;
+                background-color:#141414;
+                /* background-color:rgba(0,255,0,0.9); */
+
+                top:var(--hello-top);
+                left:10%;
+                z-index:4;
+            }
+
+            #introduce-div{
+                position:absolute;
+                font-size:23px;
+                
+                left:10%;
+                top:var(--introduce-top);
+                z-index:1;
+            }
+
+            #block-introduce-div {
+                position:absolute;
+                height:40%;
+                width:100%;
+                background-color:#141414;
+                /* background-color:rgba(255,0,0,0.9); */
+
+                top:var(--introduce-top);
+                left:10%;
+                z-index:2;
+            }
+
+            #introduce-2-div{
+                position:absolute;
+                font-size:18px;
+                width:45%;
+                
+                left:10%;
+                top:var(--introduce-2-top);
+                z-index:5;
+                line-height:1.5em;
+            }
+
+            #block-introduce-2-div {
+                position:absolute;
+                height:20%;
+                width:100%;
+                background-color:#141414;
+                /* background-color:rgba(0,0,255,0.9); */
+
+                top:var(--introduce-2-top);
+                left:10%;
+                z-index:6;
+            }
+
+            #img-div {
+                position:absolute;
+                opacity:0;
+                right:10%;
+                top:50%;
+                transform:translateY(-50%);
+                
+                z-index:10;
+            }
+
+            #logo {
+                width:300px;
+            }
+
+            @media screen and (max-width: 970px){
+                #hello-div{
+                    font-size:28px;
+                    left:5%;
+                }
+
+                #introduce-div{
+                    font-size:20px;
+                    left:5%;
+                }
+
+                #introduce-2-div{
+                    font-size:15px;
+                    left:5%;
+                }
+
+                #block-hello-div, #block-introduce-2-div, #block-introduce-div {
+                    left:5%;
+                }
+
+                #logo {
+                    width:250px;
+                }
+            }
+
+            @media screen and (max-width: 700px){
+                :root{
+                    --introduce-top:60%;
+                    --hello-top:69%;
+                    --introduce-2-top:90%;
+                }
+
+                #hello-div{
+                    font-size:24px;
+                }
+
+                #introduce-div{
+                    font-size:18px;
+                }
+
+                #introduce-2-div{
+                    font-size:15px;
+                }
+
+                #img-div {
+                    top:30%;
+                    left:5%;
+                }
+
+                #logo {
+                    width:200px;
+                }
+
+                #introduce-2-div{
+                    width:90%;
+                }
+            }
         </style>
     </head>
     <body oncontextmenu="return false;">
@@ -63,10 +210,24 @@
                 </ul>
             </nav>
         </div>
+        <div id="introduce-div">
+            <p>Hey there! I'm</p>
+        </div>
+        <div id="block-introduce-div"></div>
+        <div id="hello-div">
+            <h1>Ryan Lee</h1>
+        </div>
+        <div id="block-hello-div"></div>
+        <div id="introduce-2-div">
+            <p>
+                I am a computer science student pursuing frontend development as my career.
+                I have <span id="no-of-years"></span> years+ of programming experience and I am always eager to learn new things!
+            </p>
+        </div>
+        <div id="block-introduce-2-div"></div>
 
-        <div class="loader-wrapper">
-            <img src='static/images/logo.jpg' class='loader-image'>
-            <span class="loader"><span class="loader-inner" id='loader'></span></span>
-        </div>        
+        <div id="img-div">
+            <img id='logo' src="./static/images/circle_logo.png">
+        </div>
     </body>
 </html>
