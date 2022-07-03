@@ -12,6 +12,10 @@
         <script>
             console.log('Imagine how narcissistic you have to be, writing so many paragraphs about yourself ugh');
 
+            window.onbeforeunload = function () {
+                window.scrollTo(0, 0);
+            }
+
             $(window).on('load', async function(){
                 let date = new Date();
                 let year = date.getFullYear();
