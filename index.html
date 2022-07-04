@@ -36,14 +36,20 @@
                 $('#img-div').animate({opacity:1.0}, {duration:700});
             });
 
-            var resizeTimeout;
-            var width = $(window).width(), height = $(window).height();
-            window.addEventListener('resize', function(event) {
-                if($(window).width() != width || $(window).height() != height){
-                    location.reload();
-                }
-                width = $(window).width(), height = $(window).height();
-            });
+            // var resizeTimeout;
+            // var width = $(window).width();
+            // var height = $(window).height();
+            // $(window).bind("resize", function(){ 
+            //     clearTimeout(resizeTimeout);
+            //     resizeTimeout = setTimeout(function(){
+            //         if($(window).width() != width || $(window).height() != height){
+            //             window.location.reload();
+            //             console.log($(window).width(), width, $(window).height(), height)
+            //         }
+            //     }, 1500);
+                
+            //     width = $(window).width(), height = $(window).height();
+            // });
         </script>
         <meta name='author' content="Ryan">
         <meta name="description" content= "Hi, My name is Ryan! I love programming and playing music.  I made this website from scratch with HTML/CSS and Javascript." />
@@ -67,6 +73,7 @@
                 font-size:30px;
                 
                 left:10%;
+                margin:0;
                 top:var(--hello-top);
                 z-index:3;
             }
