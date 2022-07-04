@@ -28,7 +28,7 @@
 
                 moveUp('#introduce-div',10);
                 await sleep(500);
-                moveUp('#hello-div',16);
+                moveUp('#hello-div',17);
                 await sleep(500);
                 moveUp('#introduce-2-div',22);
                 await sleep(800);
@@ -37,11 +37,12 @@
             });
 
             var resizeTimeout;
+            var width = $(window).width(), height = $(window).height();
             window.addEventListener('resize', function(event) {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(function(){
-                    window.location.reload();
-                }, 3000);
+                if($(window).width() != width || $(window).height() != height){
+                    location.reload();
+                }
+                width = $(window).width(), height = $(window).height();
             });
         </script>
         <meta name='author' content="Ryan">
@@ -51,7 +52,7 @@
         <style>
             :root{
                 --introduce-top:45%;
-                --hello-top:54%;
+                --hello-top:55%;
                 --introduce-2-top:75%;
             }
 
@@ -195,6 +196,33 @@
 
                 #introduce-2-div{
                     width:90%;
+                }
+            }
+
+            @media screen and (max-height: 500px){
+                :root{
+                    --introduce-top:50%;
+                    --hello-top:61%;
+                    --introduce-2-top:85%;
+                }
+
+                #hello-div{
+                    font-size:22px;
+                }
+
+                #introduce-div{
+                    font-size:15px;
+                }
+
+                #introduce-2-div{
+                    font-size:13px;
+                }
+                #logo {
+                    width:200px;
+                }
+                #img-div {
+                    top:50%;
+                    
                 }
             }
         </style>
