@@ -80,7 +80,7 @@
                 opacity:0;
             }
             .console-container {
-                font-family:Khula;
+                font-family:'Khula';
                 font-size:50px;
                 padding-top:50px;
                 padding-bottom:30px;
@@ -190,10 +190,10 @@
                 }
 
                 .icons{
-                    display:grid;
-                    grid-template-columns: 1fr 1fr;
-                    grid-auto-flow: unset;
-                    row-gap: 10px;
+                    display:flex;
+                    gap:10px;
+                    justify-self: center;
+                    /* border:solid 1px red; */
                 }
 
                 .main-content{
@@ -205,6 +205,12 @@
                     font-size:32px;
                 }
 
+                .icons{
+                    display:grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-auto-flow: unset;
+                    row-gap: 10px;
+                }
             }
         </style>
     </head>
