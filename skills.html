@@ -1,434 +1,623 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel='stylesheet' type='text/css' href='style/style.css'>
-        <link rel="shortcut icon" type="image/jpg" href="static/images/logo.jpg"/>
-        <title>Skills</title>
-        <meta name='author' content="Ryan">
-        <meta name="description" content= "Some information regarding my technical skills and experience collected in programming" />
-        <meta name="robots" content= ", follow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
-        <script src="scripts/animation.js"></script>
-        <script>
-            function consoleText(words, id, colors) {
-                var visible = true;
-                var con = document.getElementById('console');
-                var letterCount = 1;
-                var x = 1;
-                var waiting = false;
-                var target = document.getElementById(id);
-                target.setAttribute('style', 'color:' + colors[0]);
-                window.setInterval(function() {
-                    if (letterCount === 0 && waiting === false) {
-                        waiting = true;
-                        target.innerHTML = words[0].substring(0, letterCount);
-                        window.setTimeout(function() {
-                            var usedColor = colors.shift();
-                            colors.push(usedColor);
-                            var usedWord = words.shift();
-                            words.push(usedWord);
-                            x = 1;
-                            target.setAttribute('style', 'color:' + colors[0])
-                            letterCount += x;
-                            waiting = false;
-                        }, 800)
-                    } else if (letterCount === words[0].length + 1 && waiting === false) {
-                        waiting = true;
-                        window.setTimeout(function() {
-                            x = -1;
-                            letterCount += x;
-                            waiting = false;
-                        }, 3000)
-                    } else if (waiting === false) {
-                        target.innerHTML = words[0].substring(0, letterCount)
-                        letterCount += x;
-                    }
-                }, 120)
-                window.setInterval(function() {
-                    if (visible === true) {
-                    con.className = 'console-underscore hidden'
-                    visible = false;
+	<head>
+		<link rel="stylesheet" type="text/css" href="style/style.css" />
+		<link
+			rel="shortcut icon"
+			type="image/jpg"
+			href="static/images/logo.jpg"
+		/>
+		<title>Skills</title>
+		<meta name="author" content="Ryan" />
+		<meta
+			name="description"
+			content="Some information regarding my technical skills and experience collected in programming"
+		/>
+		<meta name="robots" content=", follow" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+		<script src="scripts/animation.js"></script>
+		<script>
+			function consoleText(words, id, colors) {
+				var visible = true;
+				var con = document.getElementById("console");
+				var letterCount = 1;
+				var x = 1;
+				var waiting = false;
+				var target = document.getElementById(id);
+				target.setAttribute("style", "color:" + colors[0]);
+				window.setInterval(function () {
+					if (letterCount === 0 && waiting === false) {
+						waiting = true;
+						target.innerHTML = words[0].substring(
+							0,
+							letterCount
+						);
+						window.setTimeout(function () {
+							var usedColor = colors.shift();
+							colors.push(usedColor);
+							var usedWord = words.shift();
+							words.push(usedWord);
+							x = 1;
+							target.setAttribute(
+								"style",
+								"color:" + colors[0]
+							);
+							letterCount += x;
+							waiting = false;
+						}, 800);
+					} else if (
+						letterCount === words[0].length + 1 &&
+						waiting === false
+					) {
+						waiting = true;
+						window.setTimeout(function () {
+							x = -1;
+							letterCount += x;
+							waiting = false;
+						}, 3000);
+					} else if (waiting === false) {
+						target.innerHTML = words[0].substring(
+							0,
+							letterCount
+						);
+						letterCount += x;
+					}
+				}, 120);
+				window.setInterval(function () {
+					if (visible === true) {
+						con.className = "console-underscore hidden";
+						visible = false;
+					} else {
+						con.className = "console-underscore";
 
-                    } else {
-                    con.className = 'console-underscore'
+						visible = true;
+					}
+				}, 400);
+			}
 
-                    visible = true;
-                    }
-                }, 400)
-            }
+			window.onbeforeunload = function () {
+				window.scrollTo(0, 0);
+			};
 
-            window.onbeforeunload = function () {
-                window.scrollTo(0, 0);
-            }
+			console.log(
+				`Sometimes I think about the future, contemplating if I'm ever good enough to land myself a good programming job with good pay.`
+			);
 
-            console.log(`Sometimes I think about the future, contemplating if I'm ever good enough to land myself a good programming job with good pay.`)
+			$(window).on("load", async function () {
+				consoleText(
+					[
+						"Skills",
+						"Hello World",
+						"Programming",
+						"Content Creation",
+						"Javascript",
+						"HTML5",
+						"CSS3",
+					],
+					"text",
+					[
+						"#fff",
+						"#00fbff",
+						"#1cff00",
+						"#00fbff",
+						"#f0db4f",
+						"#f16529",
+						"#33a7dd",
+					]
+				);
+			});
+		</script>
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Khula:700);
 
-            $(window).on('load', async function(){
-                consoleText(['Skills', 'Hello World','Programming', 'Content Creation', 'Javascript', 'HTML5','CSS3'], 'text',['#fff','#00fbff','#1cff00', '#00fbff', '#f0db4f','#f16529','#33a7dd']);
-            });
-        </script>
-        <style>
-            @import url(https://fonts.googleapis.com/css?family=Khula:700);
+			.main-content {
+				line-height: 1.2em;
+				width: 80%;
+				margin: auto;
+			}
+			.hidden {
+				opacity: 0;
+			}
+			.console-container {
+				font-family: "Khula";
+				font-size: 50px;
+				padding-top: 50px;
+				padding-bottom: 30px;
+			}
+			.console-underscore {
+				display: inline-block;
+				position: relative;
+				top: -0.14em;
+				left: 10px;
+			}
 
-            .main-content{
-                line-height:1.2em;
-                width:80%;
-                margin:auto;
-            }
-            .hidden {
-                opacity:0;
-            }
-            .console-container {
-                font-family:'Khula';
-                font-size:50px;
-                padding-top:50px;
-                padding-bottom:30px;
-            }
-            .console-underscore {
-                display:inline-block;
-                position:relative;
-                top:-0.14em;
-                left:10px;
-            }
+			.icons {
+				display: flex;
+				grid-auto-flow: column;
+				column-gap: 50px;
+			}
 
-            .icons{
-                display:flex;
-                grid-auto-flow: column;
-                column-gap: 50px;
-            }
+			.item {
+				width: 90px;
+				padding: 10px;
+				border-radius: 10px;
+			}
 
-            .item{
-                width:90px;
-                padding:10px;
-                border-radius:10px;
-            }
+			.lime {
+				border: solid 2px #1cff00;
+			}
 
-            .lime{
-                border:solid 2px #1cff00;
-            }
+			.cyan {
+				border: solid 2px #00fbff;
+			}
 
-            .cyan{
-                border:solid 2px #00fbff;
-            }
+			.icon-img {
+				height: 50px;
+				padding-bottom: 25px;
+				left: 50%;
+				top: 50%;
+				position: relative;
+				transform: translate(-50%, -50%);
+			}
 
-            .icon-img{
-                height:50px;
-                padding-bottom:25px;
-                left: 50%;
-                top: 50%;
-                position: relative;
-                transform: translate(-50%, -50%);
-            }
+			.item-name {
+				text-align: center;
+				width: 100%;
+				margin: auto;
+				line-height: 1.2em;
+				color: #ececec;
+			}
 
-            .item-name{
-                text-align:center;
-                width:100%;
-                margin:auto;
-                line-height:1.2em;
-            }
+			.titleChar {
+				font-size: 25px;
+				position: relative;
+				line-height: 1.5em;
+			}
 
-            .titleChar{
-                font-size:25px;
-                position:relative;
-                line-height:1.5em;
-            }
-            .item:hover > .item-name{
-                transform: scale(1.15);
-            }
+			.titleChar:hover {
+				position: relative;
+				bottom: 2px;
+				display: inline-block;
+				font-size: 25px;
+			}
 
-            .titleChar:hover {
-                position:relative;
-                bottom: 2px;
-                display: inline-block;
-                font-size:25px;
-            }
+			.details {
+				line-height: 1.5em;
+				font-size: 15px;
+			}
 
-            .details {
-                line-height: 1.5em;
-                font-size:15px;
-            }
+			.titleCharacters {
+				margin-top: 15px;
+				margin-bottom: 15px;
+			}
 
-            .titleCharacters {
-                margin-top:15px;
-                margin-bottom:15px;
-            }
+			.cyanText {
+				color: #00fbff;
+			}
+			.limeText {
+				color: #1cff00;
+			}
 
-            .cyanText{
-                color:#00fbff;
-            }
-            .limeText{
-                color:#1cff00;
-            }
+			.orangeText {
+				color: #f16529;
+			}
 
-            .orangeText{
-                color:#f16529;
-            }
+			.lightBlueText {
+				color: #33a7dd;
+			}
 
-            .lightBlueText{
-                color:#33a7dd;
-            }
+			.javascriptText {
+				color: #f0db4f;
+			}
 
-            .javascriptText{
-                color:#f0db4f;
-            }
-            
-            a{
-                text-decoration: none;
-            }
-            a.socials{
-                text-decoration: underline;
-                color:#fafafa;
-            }
+			a {
+				text-decoration: none;
+			}
+			a.socials {
+				text-decoration: underline;
+				color: #fafafa;
+			}
 
-            @media screen and (max-width: 700px){
-                .console-container {
-                    font-size:40px;
-                }
-                .icon-img{
-                    height:30px;
-                }
+			@media screen and (max-width: 700px) {
+				.console-container {
+					font-size: 40px;
+				}
+				.icon-img {
+					height: 30px;
+				}
 
-                .icons{
-                    display:flex;
-                    gap:10px;
-                    justify-self: center;
-                    /* border:solid 1px red; */
-                }
+				.icons {
+					display: flex;
+					gap: 10px;
+					justify-self: center;
+					/* border:solid 1px red; */
+				}
 
-                .main-content{
-                    width:95%;
-                }
-            }
-            @media screen and (max-width: 400px) {
-                .console-container {
-                    font-size:32px;
-                }
+				.main-content {
+					width: 95%;
+				}
+			}
+			@media screen and (max-width: 400px) {
+				.console-container {
+					font-size: 32px;
+				}
 
-                .icons{
-                    display:grid;
-                    grid-template-columns: 1fr 1fr 1fr;
-                    grid-auto-flow: unset;
-                    row-gap: 10px;
-                }
+				.icons {
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+					grid-auto-flow: unset;
+					row-gap: 10px;
+				}
 
-                .icon-img{
-                    height:25px;
-                }
+				.icon-img {
+					height: 25px;
+				}
 
-                .item-name{
-                    text-align:center;
-                    width:100%;
-                    margin:auto;
-                    line-height:1.2em;
-                }
+				.item-name {
+					text-align: center;
+					width: 100%;
+					margin: auto;
+					line-height: 1.2em;
+				}
 
-                .item{
-                    padding:2px;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <nav>
-            <ul>
-                <li><a href='./'>Home</a></li>
-                <li><a href='./about.html'>About</a></li>
-                <li><a href class='active'>Skills</a></li>
-                <li><a href='./projects.html'>Projects</a></li>
-            </ul>
-        </nav>
-        <div class='main-content'>
-            <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
-            <section id='programming'>
-                <h2 class='titleCharacters'>
-                    <span class='titleChar limeText'>P</span
-                    ><span class='titleChar limeText'>r</span
-                    ><span class='titleChar limeText'>o</span
-                    ><span class='titleChar limeText'>g</span
-                    ><span class='titleChar limeText'>r</span
-                    ><span class='titleChar limeText'>a</span
-                    ><span class='titleChar limeText'>m</span
-                    ><span class='titleChar limeText'>m</span
-                    ><span class='titleChar limeText'>i</span
-                    ><span class='titleChar limeText'>n</span
-                    ><span class='titleChar limeText'>g</span
-                    >
-                </h2>
-                <p class="details">
-                    I have more experience in Python than Javascript.
-                    I use Python for automation, image processing and web scraping and use Javascript for server-side development and web development.
-                    <br><br>
-                    I have made commissions for several clients, mainly Discord bots and Twitch extensions.
-                </p>
-                <h2 class='titleCharacters'>
-                    <span class='titleChar cyanText'>C</span
-                    ><span class='titleChar cyanText'>o</span
-                    ><span class='titleChar cyanText'>n</span
-                    ><span class='titleChar cyanText'>t</span
-                    ><span class='titleChar cyanText'>e</span
-                    ><span class='titleChar cyanText'>n</span
-                    ><span class='titleChar cyanText'>t</span
-                    ><span> </span
-                    ><span class='titleChar cyanText'>C</span
-                    ><span class='titleChar cyanText'>r</span
-                    ><span class='titleChar cyanText'>e</span
-                    ><span class='titleChar cyanText'>a</span
-                    ><span class='titleChar cyanText'>t</span
-                    ><span class='titleChar cyanText'>i</span
-                    ><span class='titleChar cyanText'>o</span
-                    ><span class='titleChar cyanText'>n</span
-                    >
-                </h2>
-                <p class="details">
-                    I stream co-working on <a class="socials" target="_blank" href="https://twitch.tv/RyanPython">Twitch</a>, and have experience in making custom Twitch chat bots and custom overlays for my OBS. I made my overlays using HTML+CSS and Javascript.
-                    <br><br>
-                    I also produce some <a class="socials" target="_blank" href='https://www.youtube.com/channel/UCaota2WuI4lJ3ts2NHrc6-w'>YouTube</a> videos, showcasing the process of making a project, finishing it and demonstrating it.
-                    <br><br>
-                    I have experience in streaming a mobile game Call Of Duty: Mobile to YouTube for my school's technology society, 
-                    where I streamed and commentated with a co-host for 4 hours straight.
-                </p>
-                <h2 class='titleCharacters'>
-                    <span class='titleChar javascriptText'>L</span
-                    ><span class='titleChar javascriptText'>a</span
-                    ><span class='titleChar javascriptText'>n</span
-                    ><span class='titleChar javascriptText'>g</span
-                    ><span class='titleChar javascriptText'>u</span
-                    ><span class='titleChar javascriptText'>a</span
-                    ><span class='titleChar javascriptText'>g</span
-                    ><span class='titleChar javascriptText'>e</span
-                    ><span class='titleChar javascriptText'>s</span
-                    ><span> </span
-                    ><span class='titleChar javascriptText'>I</span
-                    ><span> </span
-                    ><span class='titleChar javascriptText'>k</span
-                    ><span class='titleChar javascriptText'>n</span
-                    ><span class='titleChar javascriptText'>o</span
-                    ><span class='titleChar javascriptText'>w</span
-                    >
-                </h2>
-                <div class="icons">
-                    
-                    <div class='lime item'>
-                        <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">
-                            <img class='icon-img' src="./static/images/python.png">
-                        </a>
-                        <div class='item-name'>Python</div>
-                    </div>
-                    <div class='cyan item'>
-                        <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">
-                            <img class='icon-img' src="./static/images/javascript.png">
-                        </a>
-                        <div class='item-name'>Javascript</div>
-                    </div>
-                    <div class='lime item'>
-                        <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank">
-                            <img class='icon-img' src="./static/images/R.png">
-                        </a>
-                        <div class='item-name'>R</div>
-                    </div>
-                    <div class='cyan item'>
-                        <a href="https://en.wikipedia.org/wiki/HTML" target="_blank">
-                            <img class='icon-img' src="./static/images/html5.png">
-                        </a>
-                        <div class='item-name'>HTML</div>
-                    </div>
-                </div>
-                <br>
-                <h2 class='titleCharacters'>
-                    <span class='titleChar orangeText'>L</span
-                    ><span class='titleChar orangeText'>i</span
-                    ><span class='titleChar orangeText'>b</span
-                    ><span class='titleChar orangeText'>r</span
-                    ><span class='titleChar orangeText'>a</span
-                    ><span class='titleChar orangeText'>r</span
-                    ><span class='titleChar orangeText'>i</span
-                    ><span class='titleChar orangeText'>e</span
-                    ><span class='titleChar orangeText'>s</span
-                    ><span> </span
-                    ><span class='titleChar orangeText'>&</span
-                    ><span> </span
-                    ><span class='titleChar orangeText'>F</span
-                    ><span class='titleChar orangeText'>r</span
-                    ><span class='titleChar orangeText'>a</span
-                    ><span class='titleChar orangeText'>m</span
-                    ><span class='titleChar orangeText'>e</span
-                    ><span class='titleChar orangeText'>w</span
-                    ><span class='titleChar orangeText'>o</span
-                    ><span class='titleChar orangeText'>r</span
-                    ><span class='titleChar orangeText'>k</span
-                    ><span class='titleChar orangeText'>s</span
-                    >
-                </h2>
-                <div class="icons">
-                    <div class='lime item'>
-                        <a href="https://en.wikipedia.org/wiki/Selenium_(software)" target="_blank">
-                            <img class='icon-img' src="./static/images/selenium.png">
-                        </a>
-                        <div class='item-name'>Selenium</div>
-                    </div>
-                    <div class='cyan item'>
-                        <a href="https://en.wikipedia.org/wiki/OpenCV" target="_blank">
-                            <img class='icon-img' src="./static/images/opencv.png">
-                        </a>
-                        <div class='item-name'>OpenCV</div>
-                    </div>
-                    <div class='lime item'>
-                        <a href="https://en.wikipedia.org/wiki/JQuery" target="_blank">
-                            <img class='icon-img' src="./static/images/jquery.png">
-                        </a>
-                        <div class='item-name'>jQuery</div>
-                    </div>
-                    <div class='cyan item'>
-                        <a href="https://en.wikipedia.org/wiki/Processing_(programming_language)#Processing.js" target="_blank">
-                            <img class='icon-img' src="./static/images/p5js.png">
-                        </a>
-                        <div class='item-name'>p5.js</div>
-                    </div>
-                </div>
-                <br>
-                <h2 class='titleCharacters'>
-                    <span class='titleChar lightBlueText'>T</span
-                    ><span class='titleChar lightBlueText'>o</span
-                    ><span class='titleChar lightBlueText'>o</span
-                    ><span class='titleChar lightBlueText'>l</span
-                    ><span class='titleChar lightBlueText'>s</span
-                    ><span> </span
-                    ><span class='titleChar lightBlueText'>I</span
-                    ><span> </span
-                    ><span class='titleChar lightBlueText'>u</span
-                    ><span class='titleChar lightBlueText'>s</span
-                    ><span class='titleChar lightBlueText'>e</span
-                    >
-                </h2>
-                <div class="icons">
-                    <div class='lime item'>
-                        <a href="https://en.wikipedia.org/wiki/Git" target="_blank">
-                            <img class='icon-img' src="./static/images/git.png">
-                        </a>
-                        <div class='item-name'>Git</div>
-                    </div>
-                    <div class='cyan item'>
-                        <a href="https://en.wikipedia.org/wiki/Visual_Studio_Code" target="_blank">
-                            <img class='icon-img' src="./static/images/vscode.png">
-                        </a>
-                        <div class='item-name'>VS Code</div>
-                    </div>
-                    <div class='lime item'>
-                        <a href="https://en.wikipedia.org/wiki/DaVinci_Resolve" target="_blank">
-                            <img class='icon-img' src="./static/images/davinci.png">
-                        </a>
-                        <div class='item-name'>Davinci Resolve 17</div>
-                    </div>
-                    <div class='cyan item'>
-                        <a href="https://en.wikipedia.org/wiki/OBS_Studio" target="_blank">
-                            <img class='icon-img' src="./static/images/obs.png">
-                        </a>
-                        <div class='item-name'>OBS Studio</div>
-                    </div>
-                </div>
-            </section>
-            <br><br><br>
-        </div>
-    </body>
+				.item {
+					padding: 2px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="./">Home</a></li>
+				<li><a href="./about.html">About</a></li>
+				<li><a href class="active">Skills</a></li>
+				<li><a href="./projects.html">Projects</a></li>
+			</ul>
+		</nav>
+		<div class="main-content">
+			<div class="console-container">
+				<span id="text"></span>
+				<div class="console-underscore" id="console">&#95;</div>
+			</div>
+			<section id="programming">
+				<h2 class="titleCharacters">
+					<span class="titleChar limeText">P</span
+					><span class="titleChar limeText">r</span
+					><span class="titleChar limeText">o</span
+					><span class="titleChar limeText">g</span
+					><span class="titleChar limeText">r</span
+					><span class="titleChar limeText">a</span
+					><span class="titleChar limeText">m</span
+					><span class="titleChar limeText">m</span
+					><span class="titleChar limeText">i</span
+					><span class="titleChar limeText">n</span
+					><span class="titleChar limeText">g</span>
+				</h2>
+				<p class="details">
+					I have more experience in Python than Javascript. I use
+					Python for automation, image processing and web
+					scraping and use Javascript for server-side development
+					and web development.
+					<br /><br />
+					I have made commissions for several clients, mainly
+					Discord bots and Twitch extensions.
+				</p>
+				<h2 class="titleCharacters">
+					<span class="titleChar cyanText">C</span
+					><span class="titleChar cyanText">o</span
+					><span class="titleChar cyanText">n</span
+					><span class="titleChar cyanText">t</span
+					><span class="titleChar cyanText">e</span
+					><span class="titleChar cyanText">n</span
+					><span class="titleChar cyanText">t</span><span> </span
+					><span class="titleChar cyanText">C</span
+					><span class="titleChar cyanText">r</span
+					><span class="titleChar cyanText">e</span
+					><span class="titleChar cyanText">a</span
+					><span class="titleChar cyanText">t</span
+					><span class="titleChar cyanText">i</span
+					><span class="titleChar cyanText">o</span
+					><span class="titleChar cyanText">n</span>
+				</h2>
+				<p class="details">
+					I stream co-working on
+					<a
+						class="socials"
+						target="_blank"
+						href="https://twitch.tv/RyanPython"
+						>Twitch</a
+					>, and have experience in making custom Twitch chat
+					bots and custom overlays for my OBS. I made my overlays
+					using HTML+CSS and Javascript. <br /><br />
+					I also produce some
+					<a
+						class="socials"
+						target="_blank"
+						href="https://www.youtube.com/channel/UCaota2WuI4lJ3ts2NHrc6-w"
+						>YouTube</a
+					>
+					videos, showcasing the process of making a project,
+					finishing it and demonstrating it. <br /><br />
+					I have experience in streaming a mobile game Call Of
+					Duty: Mobile to YouTube for my school's technology
+					society, where I streamed and commentated with a
+					co-host for 4 hours straight.
+				</p>
+				<h2 class="titleCharacters">
+					<span class="titleChar javascriptText">L</span
+					><span class="titleChar javascriptText">a</span
+					><span class="titleChar javascriptText">n</span
+					><span class="titleChar javascriptText">g</span
+					><span class="titleChar javascriptText">u</span
+					><span class="titleChar javascriptText">a</span
+					><span class="titleChar javascriptText">g</span
+					><span class="titleChar javascriptText">e</span
+					><span class="titleChar javascriptText">s</span
+					><span> </span
+					><span class="titleChar javascriptText">I</span
+					><span> </span
+					><span class="titleChar javascriptText">k</span
+					><span class="titleChar javascriptText">n</span
+					><span class="titleChar javascriptText">o</span
+					><span class="titleChar javascriptText">w</span>
+				</h2>
+				<div class="icons">
+					<div class="lime item">
+						<a
+							href="https://en.wikipedia.org/wiki/Python_(programming_language)"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/python.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/Python_(programming_language)"
+							target="_blank"
+						>
+							<div class="item-name">Python</div></a
+						>
+					</div>
+					<div class="cyan item">
+						<a
+							href="https://en.wikipedia.org/wiki/JavaScript"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/javascript.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/JavaScript"
+							target="_blank"
+						>
+							<div class="item-name">Javascript</div>
+						</a>
+					</div>
+					<div class="lime item">
+						<a
+							href="https://en.wikipedia.org/wiki/R_(programming_language)"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/R.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/R_(programming_language)"
+							target="_blank"
+						>
+							<div class="item-name">R</div>
+						</a>
+					</div>
+					<div class="cyan item">
+						<a
+							href="https://en.wikipedia.org/wiki/Brainfuck"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/BF.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/Brainfuck"
+							target="_blank"
+						>
+							<div class="item-name">Brainf*ck</div>
+						</a>
+					</div>
+				</div>
+				<br />
+				<h2 class="titleCharacters">
+					<span class="titleChar orangeText">L</span
+					><span class="titleChar orangeText">i</span
+					><span class="titleChar orangeText">b</span
+					><span class="titleChar orangeText">r</span
+					><span class="titleChar orangeText">a</span
+					><span class="titleChar orangeText">r</span
+					><span class="titleChar orangeText">i</span
+					><span class="titleChar orangeText">e</span
+					><span class="titleChar orangeText">s</span
+					><span> </span
+					><span class="titleChar orangeText">&</span
+					><span> </span
+					><span class="titleChar orangeText">F</span
+					><span class="titleChar orangeText">r</span
+					><span class="titleChar orangeText">a</span
+					><span class="titleChar orangeText">m</span
+					><span class="titleChar orangeText">e</span
+					><span class="titleChar orangeText">w</span
+					><span class="titleChar orangeText">o</span
+					><span class="titleChar orangeText">r</span
+					><span class="titleChar orangeText">k</span
+					><span class="titleChar orangeText">s</span>
+				</h2>
+				<div class="icons">
+					<div class="lime item">
+						<a
+							href="https://en.wikipedia.org/wiki/Selenium_(software)"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/selenium.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/Selenium_(software)"
+							target="_blank"
+						>
+							<div class="item-name">Selenium</div>
+						</a>
+					</div>
+					<div class="cyan item">
+						<a
+							href="https://en.wikipedia.org/wiki/OpenCV"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/opencv.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/OpenCV"
+							target="_blank"
+						>
+							<div class="item-name">OpenCV</div>
+						</a>
+					</div>
+					<div class="lime item">
+						<a
+							href="https://en.wikipedia.org/wiki/JQuery"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/jquery.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/JQuery"
+							target="_blank"
+						>
+							<div class="item-name">jQuery</div>
+						</a>
+					</div>
+					<div class="cyan item">
+						<a
+							href="https://en.wikipedia.org/wiki/Processing_(programming_language)#Processing.js"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/p5js.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/Processing_(programming_language)#Processing.js"
+							target="_blank"
+						>
+							<div class="item-name">p5.js</div>
+						</a>
+					</div>
+				</div>
+				<br />
+				<h2 class="titleCharacters">
+					<span class="titleChar lightBlueText">T</span
+					><span class="titleChar lightBlueText">o</span
+					><span class="titleChar lightBlueText">o</span
+					><span class="titleChar lightBlueText">l</span
+					><span class="titleChar lightBlueText">s</span
+					><span> </span
+					><span class="titleChar lightBlueText">I</span
+					><span> </span
+					><span class="titleChar lightBlueText">u</span
+					><span class="titleChar lightBlueText">s</span
+					><span class="titleChar lightBlueText">e</span>
+				</h2>
+				<div class="icons">
+					<div class="lime item">
+						<a
+							href="https://en.wikipedia.org/wiki/Git"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/git.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/Git"
+							target="_blank"
+							><div class="item-name">Git</div></a
+						>
+					</div>
+					<div class="cyan item">
+						<a
+							href="https://en.wikipedia.org/wiki/Visual_Studio_Code"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/vscode.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/Visual_Studio_Code"
+							target="_blank"
+						>
+							<div class="item-name">VS Code</div></a
+						>
+					</div>
+					<div class="lime item">
+						<a
+							href="https://en.wikipedia.org/wiki/DaVinci_Resolve"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/davinci.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/DaVinci_Resolve"
+							target="_blank"
+						>
+							<div class="item-name">
+								Davinci Resolve 17
+							</div>
+						</a>
+					</div>
+					<div class="cyan item">
+						<a
+							href="https://en.wikipedia.org/wiki/OBS_Studio"
+							target="_blank"
+						>
+							<img
+								class="icon-img"
+								src="./static/images/obs.png"
+							/>
+						</a>
+						<a
+							href="https://en.wikipedia.org/wiki/OBS_Studio"
+							target="_blank"
+						>
+							<div class="item-name">OBS Studio</div>
+						</a>
+					</div>
+				</div>
+			</section>
+			<br /><br /><br />
+		</div>
+	</body>
 </html>

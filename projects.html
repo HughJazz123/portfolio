@@ -1,290 +1,395 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <link rel='stylesheet' type='text/css' href='style/style.css'>
-        <link rel="shortcut icon" type="image/jpg" href="static/images/logo.jpg"/>
-        <meta name='author' content="Ryan">
-        <meta name="description" content= "Some of the projects I've made in the past, all available on github">
-        <meta name="robots" content= ", follow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
-        <script>
-            window.onbeforeunload = function () {
-                window.scrollTo(0, 0);
-            }
+	<head>
+		<link rel="stylesheet" type="text/css" href="style/style.css" />
+		<link
+			rel="shortcut icon"
+			type="image/jpg"
+			href="static/images/logo.jpg"
+		/>
+		<meta name="author" content="Ryan" />
+		<meta
+			name="description"
+			content="Some of the projects I've made in the past, all available on github"
+		/>
+		<meta name="robots" content=", follow" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+		<script>
+			window.onbeforeunload = function () {
+				window.scrollTo(0, 0);
+			};
 
-            var vids_muted = true;
+			var vids_muted = true;
 
-            function videos_unmuted() {
-                let button = document.getElementById('mute-button')
-                button.innerText = vids_muted ? 'Click to mute audio' : 'Click to play audio';
-                // button.style.backgroundColor = vids_muted ? '#dc0000' : '#00bf2d';
-                vids_muted = !vids_muted;
+			function videos_unmuted() {
+				let button = document.getElementById("mute-button");
+				button.innerText = vids_muted
+					? "Click to mute audio"
+					: "Click to play audio";
+				// button.style.backgroundColor = vids_muted ? '#dc0000' : '#00bf2d';
+				vids_muted = !vids_muted;
 
-                let all_videos = document.getElementsByTagName('video');
+				let all_videos = document.getElementsByTagName("video");
 
-                for (v of all_videos){
-                    v.muted = !v.muted;
-                }
-            }
-            console.log(`Literally 4/5 of the projects have PIL and OpenCV...`);
-            console.log(`There's a hidden project in this html file`);
-        </script>
-        <title>Projects</title>
-        <style>
-            .project-box {
-                position:relative;
-                border: 2px solid #505050;
-                border-radius:20px;
-                color:#fafafa;
-                background-color: #303030;
-                /* padding:15px; */
-            }
+				for (v of all_videos) {
+					console.log(v);
+					v.muted = !v.muted;
+					console.log(v.muted);
+				}
+			}
+			console.log(
+				`Literally 4/5 of the projects have PIL and OpenCV...`
+			);
+			console.log(`There's a hidden project in this html file`);
+		</script>
+		<title>Projects</title>
+		<style>
+			.project-box {
+				position: relative;
+				border: 2px solid #505050;
+				border-radius: 20px;
+				color: #fafafa;
+				background-color: #303030;
+				/* padding:15px; */
+			}
 
-            .project-section{
-                display: grid;
-                grid-column: 2;
-                grid-template-columns: 1fr 1fr;
-                row-gap:50px;
-                column-gap:20px;
-                margin: auto;
-                width: 90%;
-                margin-top:90px;
-            }
+			.project-section {
+				display: grid;
+				grid-column: 2;
+				grid-template-columns: 1fr 1fr;
+				row-gap: 50px;
+				column-gap: 20px;
+				margin: auto;
+				width: 90%;
+				margin-top: 20px;
+			}
 
-            .project-title-div{
-                width:90%;
-                margin-left:auto;
-                margin-right:auto;
-            }
+			.project-title-div {
+				width: 90%;
+				margin-left: auto;
+				margin-right: auto;
+			}
 
-            .project-title{
-                font-size:20px;
-                font-family:'montserrat-bold';
-                /* padding-left:20px; */
-                padding-top:20px;
-            }
+			.project-title {
+				font-size: 20px;
+				font-family: "montserrat-bold";
+				/* padding-left:20px; */
+				padding-top: 20px;
+			}
 
-            .project-icon{
-                width:90%; 
-                position:relative;
-                border-radius:10px;
-                overflow: hidden; 
-                display:block;
-                margin-left:auto;
-                margin-right:auto;
-                margin-top:15px;
-                margin-bottom:15px;
-            }
-            .project-description{
-                width:90%;
-                font-size:15px;
-                margin-left:auto;
-                margin-right:auto;
-                margin-bottom:10px;
-            }
+			.project-icon {
+				width: 90%;
+				position: relative;
+				border-radius: 10px;
+				overflow: hidden;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 15px;
+				margin-bottom: 15px;
+			}
+			.project-description {
+				width: 90%;
+				font-size: 15px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 10px;
+			}
 
-            .tags{
-                position: absolute;
-                bottom:15px;
-                width:90%;
-                height:25px;
-                line-height:2em;
-                left:50%;
-                transform:translateX(-50%);
-            }
+			.tags {
+				position: absolute;
+				bottom: 15px;
+				width: 90%;
+				height: 25px;
+				line-height: 2em;
+				left: 50%;
+				transform: translateX(-50%);
+			}
 
-            .tag{
-                font-size:12px;
-                border:solid 2px #505050;
-                padding:5px;
-                border-radius:10px;
-            }
+			.tag {
+				font-size: 12px;
+				border: solid 2px #505050;
+				padding: 5px;
+				border-radius: 10px;
+			}
 
-            .tag:hover{
-                background-color:#505050;
-                color:#e9e9e9;
-            }
+			.tag:hover {
+				background-color: #505050;
+				color: #e9e9e9;
+			}
 
-            .yt-vid{
-                color:#fafafa;
-                text-decoration: none;
-            }
+			.yt-vid {
+				color: #fafafa;
+				text-decoration: none;
+			}
 
-            .yt-vid[href]{
-                text-decoration:underline;
-            }
+			.yt-vid[href] {
+				text-decoration: underline;
+			}
 
-            #tip {
-                top:15%;
-                left:50%;
-                transform:translateX(-50%);
-                width:fit-content;
-                position:absolute;
-                z-index:10;
-            }
+			#tip {
+				left: 50%;
+				transform: translateX(-50%);
+				width: fit-content;
+				position: relative;
+				z-index: 10;
+				margin-top: 10px;
+			}
 
-            #mute-button {
-                top:10%;
-                position:absolute;
-                width:fit-content;
-                left:50%;
-                transform:translateX(-50%);
+			#mute-button {
+				position: relative;
+				width: fit-content;
+				left: 50%;
+				transform: translateX(-50%);
 
-                background-color:#606060;
-                padding:5px;
-                border: solid 2px white;
-                border-radius:5px;
-                color:white;
-                font-family:'montserrat';
-            }
+				background-color: #606060;
+				padding: 5px;
+				border: solid 2px white;
+				border-radius: 5px;
+				color: white;
+				font-family: "montserrat";
+			}
 
-            @media screen and (max-width: 900px){
-                .project-section {
-                    grid-template-columns: 1fr;
-                }
-                #click-text{
-                    font-size:25px;
-                    white-space: nowrap;
-                }
-                .project-box{
-                    height:fit-content;
-                }
-                .tags{
-                    position:relative;
-                    height:fit-content;
-                }
+			@media screen and (max-width: 900px) {
+				.project-section {
+					grid-template-columns: 1fr;
+				}
+				#click-text {
+					font-size: 25px;
+					white-space: nowrap;
+				}
+				.project-box {
+					height: fit-content;
+				}
+				.tags {
+					position: relative;
+					height: fit-content;
+				}
 
-                #tip {
-                    margin-top:5px;
-                    font-size:13px;
-                }
-            }
-        </style>
-    </head>
-    <body oncontextmenu="return false;">
-        <nav>
-            <ul>
-                <li><a href='./'>Home</a></li>
-                <li><a href='./about.html'>About</a></li>
-                <li><a href='./skills.html'>Skills</a></li>
-                <li><a href class='active'>Projects</a></li>
-            </ul>
-        </nav>
-        <button type="button" onclick="videos_unmuted()" id="mute-button">Click to play audio</button>
-        <p id="tip">Tip: Hover over the icons to watch the videos!</p>
+				#tip {
+					margin-top: 5px;
+					font-size: 13px;
+				}
+			}
+		</style>
+	</head>
+	<body oncontextmenu="return false;">
+		<nav>
+			<ul>
+				<li><a href="./">Home</a></li>
+				<li><a href="./about.html">About</a></li>
+				<li><a href="./skills.html">Skills</a></li>
+				<li><a href class="active">Projects</a></li>
+			</ul>
+		</nav>
+		<button type="button" onclick="videos_unmuted()" id="mute-button">
+			Click to play audio
+		</button>
+		<p id="tip">Tip: Hover over the icons to watch the videos!</p>
+		<div class="project-section">
+			<div class="project-box">
+				<div class="project-title-div">
+					<h4 class="project-title">Chimp Test bot</h4>
+				</div>
+				<a
+					href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/chimp_test"
+					target="_blank"
+				>
+					<video
+						muted
+						onmouseover="this.play()"
+						onmouseout="this.pause();this.currentTime=0;"
+						class="project-icon"
+					>
+						<source src="./static/videos/chimp_test.mov" />
+					</video>
+				</a>
 
-        <div class='project-section'>
-            <div class='project-box'>
-                <div class="project-title-div">
-                    <h4 class='project-title'>Chimp Test bot</h4>
-                </div>
-                <a href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/chimp_test" target='_blank'>
-                    <video muted onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/chimp_test.mov'>
-                    </video>
-                </a>
-                
-                <p class='project-description'>
-                    A bot that beats Human Benchmark's Chimp test.  Uses PIL for window capture, OpenCV for image processing, PyAutoGUI for mouse clicking.
-                    <br><br><a href="https://youtu.be/3azxC0o0Lgs" class="yt-vid" target="_blank">Link to Youtube video</a>
-                </p>
-                <br><br>
-                <div class='tags'>
-                    <span class='tag'>Python</span>
-                    <span class='tag'>PIL</span>
-                    <span class='tag'>OpenCV</span>
-                    <span class='tag'>PyAutoGUI</span>
-                </div>
-            </div>
-            <div class='project-box'>
-                <div class="project-title-div">
-                    <h4 class='project-title'>Visual Memory bot</h4>
-                </div>
-                <a href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/visual_memory" target='_blank'>
-                    <video muted onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/visual_memory_demo.mov'>
-                    </video>
-                </a>
-                
-                <p class='project-description'>
-                    A bot that beats Human Benchmark's Visual Memory test.  Uses PIL for window capture, OpenCV for image processing and PyAutoGUI for mouse clicking.
-                </p>
-                <br><br>
-                <div class='tags'>
-                    <span class='tag'>Python</span>
-                    <span class='tag'>PIL</span>
-                    <span class='tag'>OpenCV</span>
-                    <span class='tag'>PyAutoGUI</span>
-                </div>
-            </div>
-            <div class='project-box'>
-                <div class="project-title-div">
-                    <h4 class='project-title'>Verbal Memory bot</h4>
-                </div>
-                <a href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/verbal_memory" target='_blank'>
-                    <video muted onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/verbal_memory.mov'>
-                    </video>
-                </a>
-                <p class='project-description'>
-                    A bot that beats Human Benchmark's Verbal Memory test. Uses web scraping library Selenium to get words and send button click input.
-                    <br><br><a href="https://youtu.be/xwD_bAGJ4Kc" class="yt-vid" target="_blank">Link to Youtube video</a>
-                </p>
-                <br><br>
-                <div class='tags'>
-                    <span class='tag'>Python</span>
-                    <span class='tag'>Selenium</span>
-                </div>
-            </div>
-            <div class='project-box'>
-                <div class="project-title-div">
-                    <h4 class='project-title'>Chess bot</h4>
-                </div>
-                <a href="https://github.com/liyunze-coding/chess-playing-bot-v2" target='_blank'>
-                    <video muted onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/chess_bot_demo.mov'>
-                    </video>
-                </a>
-                
-                <p class='project-description'>
-                    A bot that plays against opponents on lichess. 
-                    It uses OpenCV for template matching, a chess library to figure out the best move 
-                    and PyAutoGUI to play the move.
-                </p>
-                <br><br>
-                <div class='tags'>
-                    <span class='tag'>Python</span>
-                    <span class='tag'>PIL</span>
-                    <span class='tag'>OpenCV</span>
-                    <span class='tag'>PyAutoGUI</span>
-                    <span class='tag'>chess</span>
-                </div>
-            </div>
-            <div class='project-box'>
-                <div class="project-title-div">
-                    <h4 class='project-title'>Monkey Type bot</h4>
-                </div>
-                <a href="https://github.com/liyunze-coding/monkey-type-bot" target='_blank'>
-                    <video muted onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" class='project-icon'>
-                        <source src='./static/videos/monkeytype.mov'>
-                    </video>
-                </a>
-                <p class='project-description'>
-                    A bot that types around 600-700 words per second on Monkey Type. Does a little image processing with OpenCV, and reads text with PyTesseract.
-                    PyAutoGUI is used to type the words out.
-                </p>
-                <br><br>
-                <div class='tags'>
-                    <span class='tag'>Python</span>
-                    <span class='tag'>PIL</span>
-                    <span class='tag'>OpenCV</span>
-                    <span class='tag'>PyAutoGUI</span>
-                    <span class='tag'>PyTesseract</span>
-                </div>
-            </div>
-            <!-- <div class='project-box'>
+				<p class="project-description">
+					A bot that beats Human Benchmark's Chimp test. Uses PIL
+					for window capture, OpenCV for image processing,
+					PyAutoGUI for mouse clicking.
+					<br /><br /><a
+						href="https://youtu.be/3azxC0o0Lgs"
+						class="yt-vid"
+						target="_blank"
+						>Link to Youtube video</a
+					>
+				</p>
+				<br /><br />
+				<div class="tags">
+					<span class="tag">Python</span>
+					<span class="tag">PIL</span>
+					<span class="tag">OpenCV</span>
+					<span class="tag">PyAutoGUI</span>
+				</div>
+			</div>
+			<div class="project-box">
+				<div class="project-title-div">
+					<h4 class="project-title">Visual Memory bot</h4>
+				</div>
+				<a
+					href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/visual_memory"
+					target="_blank"
+				>
+					<video
+						muted
+						onmouseover="this.play()"
+						onmouseout="this.pause();this.currentTime=0;"
+						class="project-icon"
+					>
+						<source
+							src="./static/videos/visual_memory_demo.mov"
+						/>
+					</video>
+				</a>
+
+				<p class="project-description">
+					A bot that beats Human Benchmark's Visual Memory test.
+					Uses PIL for window capture, OpenCV for image
+					processing and PyAutoGUI for mouse clicking.
+				</p>
+				<br /><br />
+				<div class="tags">
+					<span class="tag">Python</span>
+					<span class="tag">PIL</span>
+					<span class="tag">OpenCV</span>
+					<span class="tag">PyAutoGUI</span>
+				</div>
+			</div>
+			<div class="project-box">
+				<div class="project-title-div">
+					<h4 class="project-title">Verbal Memory bot</h4>
+				</div>
+				<a
+					href="https://github.com/liyunze-coding/human-benchmark-bots/tree/master/verbal_memory"
+					target="_blank"
+				>
+					<video
+						muted
+						onmouseover="this.play()"
+						onmouseout="this.pause();this.currentTime=0;"
+						class="project-icon"
+					>
+						<source src="./static/videos/verbal_memory.mov" />
+					</video>
+				</a>
+				<p class="project-description">
+					A bot that beats Human Benchmark's Verbal Memory test.
+					Uses web scraping library Selenium to get words and
+					send button click input.
+					<br /><br /><a
+						href="https://youtu.be/xwD_bAGJ4Kc"
+						class="yt-vid"
+						target="_blank"
+						>Link to Youtube video</a
+					>
+				</p>
+				<br /><br />
+				<div class="tags">
+					<span class="tag">Python</span>
+					<span class="tag">Selenium</span>
+				</div>
+			</div>
+			<div class="project-box">
+				<div class="project-title-div">
+					<h4 class="project-title">Chess bot</h4>
+				</div>
+				<a
+					href="https://github.com/liyunze-coding/chess-playing-bot-v2"
+					target="_blank"
+				>
+					<video
+						muted
+						onmouseover="this.play()"
+						onmouseout="this.pause();this.currentTime=0;"
+						class="project-icon"
+					>
+						<source
+							src="./static/videos/chess_bot_demo.mov"
+						/>
+					</video>
+				</a>
+
+				<p class="project-description">
+					A bot that plays against opponents on lichess. It uses
+					OpenCV for template matching, a chess library to figure
+					out the best move and PyAutoGUI to play the move.
+				</p>
+				<br /><br />
+				<div class="tags">
+					<span class="tag">Python</span>
+					<span class="tag">PIL</span>
+					<span class="tag">OpenCV</span>
+					<span class="tag">PyAutoGUI</span>
+					<span class="tag">chess</span>
+				</div>
+			</div>
+			<div class="project-box">
+				<div class="project-title-div">
+					<h4 class="project-title">Monkey Type bot</h4>
+				</div>
+				<a
+					href="https://github.com/liyunze-coding/monkey-type-bot"
+					target="_blank"
+				>
+					<video
+						muted
+						onmouseover="this.play()"
+						onmouseout="this.pause();this.currentTime=0;"
+						class="project-icon"
+					>
+						<source src="./static/videos/monkeytype.mov" />
+					</video>
+				</a>
+				<p class="project-description">
+					A bot that types around 600-700 words per second on
+					Monkey Type. Does a little image processing with
+					OpenCV, and reads text with PyTesseract. PyAutoGUI is
+					used to type the words out.
+				</p>
+				<br /><br />
+				<div class="tags">
+					<span class="tag">Python</span>
+					<span class="tag">PIL</span>
+					<span class="tag">OpenCV</span>
+					<span class="tag">PyAutoGUI</span>
+					<span class="tag">PyTesseract</span>
+				</div>
+			</div>
+			<div class="project-box">
+				<div class="project-title-div">
+					<h4 class="project-title">Aim Lab bot</h4>
+				</div>
+				<video
+					muted
+					onmouseover="this.play()"
+					onmouseout="this.pause();this.currentTime=0;"
+					class="project-icon"
+				>
+					<source
+						src="./static/videos/aim_lab_demo.mov"
+						type="video/mp4"
+					/>
+				</video>
+				<p class="project-description">
+					A bot that plays Aim Lab. Uses OpenCV to find the
+					nearest cyan target and clicks on it. Win32API is used
+					to control mouse movement.
+				</p>
+				<br /><br />
+				<div class="tags">
+					<span class="tag">Python</span>
+					<span class="tag">OpenCV</span>
+					<span class="tag">win32api</span>
+				</div>
+			</div>
+			<!-- <div class='project-box'>
                 <div class="project-title-div">
                     <h4 class='project-title'>"Compliment" Me Elmo</h4>
                 </div>
@@ -306,6 +411,6 @@
                     <span class='tag'>p5.js</span>
                 </div>
             </div> -->
-        </div>
-    </body>
+		</div>
+	</body>
 </html>
