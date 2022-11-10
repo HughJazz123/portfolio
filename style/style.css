@@ -7,11 +7,6 @@
 	src: url("../font/Montserrat-Regular.otf");
 }
 
-@font-face {
-	font-family: "roboto-light";
-	src: url("../font/Roboto-Light.ttf");
-}
-
 * {
 	margin:0;
 	padding:0;

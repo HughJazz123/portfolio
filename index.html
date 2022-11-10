@@ -1,253 +1,268 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <link rel='stylesheet' type='text/css' href='style/style.css'>
-        <link rel="shortcut icon" type="image/jpg" href="static/images/logo.jpg"/>
-        <title>Ryan's Portfolio</title>
-        <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
-        <script>
-            function moveUp(id, length){
-                $(id).animate({top:`-=${length}%`}, {duration:900});
-            }
+	<head>
+		<link rel="stylesheet" type="text/css" href="style/style.css" />
+		<link
+			rel="shortcut icon"
+			type="image/jpg"
+			href="static/images/logo.jpg"
+		/>
+		<title>Ryan's Portfolio</title>
+		<script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script>
+			function moveUp(id, length) {
+				$(id).animate({ top: `-=${length}%` }, { duration: 900 });
+			}
 
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
+			function sleep(ms) {
+				return new Promise((resolve) => setTimeout(resolve, ms));
+			}
 
-            window.onbeforeunload = function () {
-                window.scrollTo(0, 0);
-            }
+			window.onbeforeunload = function () {
+				window.scrollTo(0, 0);
+			};
 
-            $(window).on('load', async function(){
-                let date = new Date();
-                let year = date.getFullYear();
+			$(window).on("load", async function () {
+				let date = new Date();
+				let year = date.getFullYear();
 
-                document.getElementById('no-of-years').innerText = year - 2018;
+				document.getElementById("no-of-years").innerText =
+					year - 2018;
 
-                moveUp('#introduce-div',10);
-                await sleep(500);
-                moveUp('#hello-div',17);
-                await sleep(500);
-                moveUp('#introduce-2-div',22);
-                await sleep(800);
+				moveUp("#introduce-div", 10);
+				await sleep(500);
+				moveUp("#hello-div", 17);
+				await sleep(500);
+				moveUp("#introduce-2-div", 22);
+				await sleep(800);
 
-                $('#img-div').animate({opacity:1.0}, {duration:700});
-            });
-        </script>
-        <meta name='author' content="Ryan">
-        <meta name="description" content= "Hi, My name is Ryan! I want to pursue a backend development career, check out this website to learn more :D" />
-        <meta name="robots" content= ", follow">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <style>
-            :root{
-                --introduce-top:45%;
-                --hello-top:55%;
-                --introduce-2-top:75%;
-            }
+				$("#img-div").animate({ opacity: 1.0 }, { duration: 700 });
+			});
+		</script>
+		<meta name="author" content="Ryan" />
+		<meta
+			name="description"
+			content="Hi, My name is Ryan! I want to pursue a backend development career, check out this website to learn more :D"
+		/>
+		<meta name="robots" content=", follow" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+		/>
+		<style>
+			:root {
+				--introduce-top: 45%;
+				--hello-top: 55%;
+				--introduce-2-top: 75%;
+			}
 
-            html, body {
-                margin: 0; 
-                height: 100%; 
-                overflow: hidden;
-            }
+			html,
+			body {
+				margin: 0;
+				height: 100%;
+				overflow: hidden;
+			}
 
-            #hello-div{
-                position:absolute;
-                font-size:30px;
-                
-                left:10%;
-                margin:0;
-                top:var(--hello-top);
-                z-index:3;
-            }
+			#hello-div {
+				position: absolute;
+				font-size: 30px;
 
-            #block-hello-div {
-                position:absolute;
-                height:40%;
-                width:100%;
-                background-color:#141414;
-                /* background-color:rgba(0,255,0,0.9); */
+				left: 10%;
+				margin: 0;
+				top: var(--hello-top);
+				z-index: 3;
+			}
 
-                top:var(--hello-top);
-                left:10%;
-                z-index:4;
-            }
+			#block-hello-div {
+				position: absolute;
+				height: 40%;
+				width: 100%;
+				background-color: #141414;
+				/* background-color:rgba(0,255,0,0.9); */
 
-            #introduce-div{
-                position:absolute;
-                font-size:23px;
-                
-                left:10%;
-                top:var(--introduce-top);
-                z-index:1;
-            }
+				top: var(--hello-top);
+				left: 10%;
+				z-index: 4;
+			}
 
-            #block-introduce-div {
-                position:absolute;
-                height:40%;
-                width:100%;
-                background-color:#141414;
-                /* background-color:rgba(255,0,0,0.9); */
+			#introduce-div {
+				position: absolute;
+				font-size: 23px;
 
-                top:var(--introduce-top);
-                left:10%;
-                z-index:2;
-            }
+				left: 10%;
+				top: var(--introduce-top);
+				z-index: 1;
+			}
 
-            #introduce-2-div{
-                position:absolute;
-                font-size:18px;
-                width:45%;
-                
-                left:10%;
-                top:var(--introduce-2-top);
-                z-index:5;
-                line-height:1.5em;
-            }
+			#block-introduce-div {
+				position: absolute;
+				height: 40%;
+				width: 100%;
+				background-color: #141414;
+				/* background-color:rgba(255,0,0,0.9); */
 
-            #block-introduce-2-div {
-                position:absolute;
-                height:20%;
-                width:100%;
-                background-color:#141414;
-                /* background-color:rgba(0,0,255,0.9); */
+				top: var(--introduce-top);
+				left: 10%;
+				z-index: 2;
+			}
 
-                top:var(--introduce-2-top);
-                left:10%;
-                z-index:6;
-            }
+			#introduce-2-div {
+				position: absolute;
+				font-size: 18px;
+				width: 45%;
 
-            #img-div {
-                position:absolute;
-                opacity:0;
-                right:10%;
-                top:50%;
-                transform:translateY(-50%);
-                
-                z-index:10;
-            }
+				left: 10%;
+				top: var(--introduce-2-top);
+				z-index: 5;
+				line-height: 1.5em;
+			}
 
-            #logo {
-                width:300px;
-            }
+			#block-introduce-2-div {
+				position: absolute;
+				height: 20%;
+				width: 100%;
+				background-color: #141414;
+				/* background-color:rgba(0,0,255,0.9); */
 
-            @media screen and (max-width: 970px){
-                #hello-div{
-                    font-size:28px;
-                    left:5%;
-                }
+				top: var(--introduce-2-top);
+				left: 10%;
+				z-index: 6;
+			}
 
-                #introduce-div{
-                    font-size:20px;
-                    left:5%;
-                }
+			#img-div {
+				position: absolute;
+				opacity: 0;
+				right: 10%;
+				top: 50%;
+				transform: translateY(-50%);
 
-                #introduce-2-div{
-                    font-size:15px;
-                    left:5%;
-                }
+				z-index: 10;
+			}
 
-                #block-hello-div, #block-introduce-2-div, #block-introduce-div {
-                    left:5%;
-                }
+			#logo {
+				width: 300px;
+			}
 
-                #logo {
-                    width:250px;
-                }
-            }
+			@media screen and (max-width: 970px) {
+				#hello-div {
+					font-size: 28px;
+					left: 5%;
+				}
 
-            @media screen and (max-width: 700px){
-                :root{
-                    --introduce-top:60%;
-                    --hello-top:71%;
-                    --introduce-2-top:87%;
-                }
+				#introduce-div {
+					font-size: 20px;
+					left: 5%;
+				}
 
-                #hello-div{
-                    font-size:24px;
-                }
+				#introduce-2-div {
+					font-size: 15px;
+					left: 5%;
+				}
 
-                #introduce-div{
-                    font-size:18px;
-                }
+				#block-hello-div,
+				#block-introduce-2-div,
+				#block-introduce-div {
+					left: 5%;
+				}
 
-                #introduce-2-div{
-                    font-size:15px;
-                }
+				#logo {
+					width: 250px;
+				}
+			}
 
-                #img-div {
-                    top:30%;
-                    left:5%;
-                }
+			@media screen and (max-width: 700px) {
+				:root {
+					--introduce-top: 60%;
+					--hello-top: 71%;
+					--introduce-2-top: 87%;
+				}
 
-                #logo {
-                    width:200px;
-                }
+				#hello-div {
+					font-size: 24px;
+				}
 
-                #introduce-2-div{
-                    width:90%;
-                }
-            }
+				#introduce-div {
+					font-size: 18px;
+				}
 
-            @media screen and (max-height: 500px){
-                :root{
-                    --introduce-top:50%;
-                    --hello-top:61%;
-                    --introduce-2-top:80%;
-                }
+				#introduce-2-div {
+					font-size: 15px;
+				}
 
-                #hello-div{
-                    font-size:22px;
-                }
+				#img-div {
+					top: 30%;
+					left: 5%;
+				}
 
-                #introduce-div{
-                    font-size:15px;
-                }
+				#logo {
+					width: 200px;
+				}
 
-                #introduce-2-div{
-                    font-size:13px;
-                }
-                #logo {
-                    width:200px;
-                }
-                #img-div {
-                    top:50%;
-                    
-                }
-            }
-        </style>
-    </head>
-    <body oncontextmenu="return false;">
-        <div class='menuItems'>
-            <nav>
-                <ul>
-                    <li><a href class='active'>Home</a></li>
-                    <li><a href='./about.html'>About</a></li>
-                    <li><a href='./skills.html'>Skills</a></li>
-                    <li><a href='./projects.html'>Projects</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div id="introduce-div">
-            <p>Hey there! I'm</p>
-        </div>
-        <div id="block-introduce-div"></div>
-        <div id="hello-div">
-            <h1>Ryan Lee</h1>
-        </div>
-        <div id="block-hello-div"></div>
-        <div id="introduce-2-div">
-            <p>
-                I am a computer science student pursuing backend development as my career.
-                I have <span id="no-of-years"></span> years+ of programming experience and I am always eager to learn new things!
-            </p>
-        </div>
-        <div id="block-introduce-2-div"></div>
+				#introduce-2-div {
+					width: 90%;
+				}
+			}
 
-        <div id="img-div">
-            <img id='logo' src="./static/images/circle_logo.png">
-        </div>
-    </body>
+			@media screen and (max-height: 500px) {
+				:root {
+					--introduce-top: 50%;
+					--hello-top: 61%;
+					--introduce-2-top: 80%;
+				}
+
+				#hello-div {
+					font-size: 22px;
+				}
+
+				#introduce-div {
+					font-size: 15px;
+				}
+
+				#introduce-2-div {
+					font-size: 13px;
+				}
+				#logo {
+					width: 200px;
+				}
+				#img-div {
+					top: 50%;
+				}
+			}
+		</style>
+	</head>
+	<body oncontextmenu="return false;">
+		<div class="menuItems">
+			<nav>
+				<ul>
+					<li><a href class="active">Home</a></li>
+					<li><a href="./about.html">About</a></li>
+					<li><a href="./skills.html">Skills</a></li>
+					<li><a href="./projects.html">Projects</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div id="introduce-div">
+			<p>Hey there! I'm</p>
+		</div>
+		<div id="block-introduce-div"></div>
+		<div id="hello-div">
+			<h1>Ryan Lee</h1>
+		</div>
+		<div id="block-hello-div"></div>
+		<div id="introduce-2-div">
+			<p>
+				I am a computer science student pursuing backend development
+				as my career. I have <span id="no-of-years"></span> years+
+				of programming experience and I am always eager to learn new
+				things!
+			</p>
+		</div>
+		<div id="block-introduce-2-div"></div>
+
+		<div id="img-div">
+			<img id="logo" src="./static/images/circle_logo.png" />
+		</div>
+	</body>
 </html>
